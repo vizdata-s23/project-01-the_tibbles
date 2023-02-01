@@ -23,12 +23,24 @@ bigfoot <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/ti
 glimpse(bigfoot)
 ```
 
-The Tibbles chose the Bigfoot dataset from TidyTuesday. The data originates from a publicly available database on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset was created by Timothy Renner in 2017. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting.
+The Tibbles chose the Bigfoot dataset from TidyTuesday. The data originates from a publicly available database on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset created by Timothy Renner first became available on Data World in 2017. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as lengthier descriptions of the sighting observations, time and geographic details, and weather details.
 
 The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the potential this information holds to prove once and for all the existence (or lack thereof) of one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
 # Questions
 
+1.  How has the geographic distribution of Bigfoot sightings changed over time?
+2.   Are certain weather conditions more commonly associated with Bigfoot sightings than others?
+
 # Analysis plan
 
-A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+1.  How has the geographic distribution of Bigfoot sightings changed over time?
+    -   Create new 'year' variable from existing 'date' variable
+
+    -   Map observations as points by 'longitude' and 'latitude' variables then color by 'year'
+2.  Are certain weather conditions more commonly associated with Bigfoot sightings than others?
+    -   Create a plot the illustrating the distribution of Bigfoot sightings with respect to 'cloud_cover', 'moon_phase', 'precip_intensity', 'precip_type', and 'visibility'
+
+    -   Analyze plot for patterns in distribution
+
+    -   Create additional plots on weather variables if necessary
