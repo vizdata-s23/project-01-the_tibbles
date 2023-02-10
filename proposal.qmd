@@ -8,8 +8,8 @@ editor: visual
 ```{r}
 #| label: load-pkgs
 #| message: false
-
-library(tidyverse)
+suppressWarnings(library(tidyverse))
+library(knitr)
 ```
 
 # Dataset
