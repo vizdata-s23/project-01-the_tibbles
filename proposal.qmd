@@ -43,4 +43,10 @@ The Tibbles opted to work with this dataset because of our shared predilection f
 
     -   Analyze plot for patterns in distribution
 
-    -   Create additional plots on weather variables if necessary
+    -   Create additional plots on weather variables if necessary. Weather variables include:
+
+        -   temperature_low/mid/high
+
+        -   dew_point
+
+        -   humidity
