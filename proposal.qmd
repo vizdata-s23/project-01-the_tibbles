@@ -30,7 +30,7 @@ The Tibbles opted to work with this dataset because of our shared predilection f
 # Questions
 
 1.  How has the geographic distribution of Bigfoot sightings changed over time?
-2.   Are certain weather conditions more commonly associated with Bigfoot sightings than others?
+2.  Are certain weather conditions more commonly associated with Bigfoot sightings than others?
 
 # Analysis plan
 
