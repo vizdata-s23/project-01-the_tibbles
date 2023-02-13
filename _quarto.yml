@@ -19,7 +19,6 @@ format:
   html:
     theme: default
     toc: true
-toc: true
 
 execute:
   freeze: auto
