@@ -8,15 +8,13 @@ website:
       - icon: github
         href: https://github.com/vizdata-s23/project-01-the_tibbles
     left:
-      - href: index.qmd
-- text: Project
-    href: index.qmd- text: Project
-    href: index.qmd
-      - text: "Proposal"
+      - text: Project
+        href: index.qmd
+      - text: Proposal
         href: proposal.qmd
-      - text: "Presentation"
+      - text: Presentation
         href: presentation.qmd
-      - text: "About"
+      - text: About
         href: about.qmd
 
 format:
