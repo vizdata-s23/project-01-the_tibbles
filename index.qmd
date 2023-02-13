@@ -8,7 +8,7 @@ editor: visual
 
 ## Abstract
 
-Add project abstract here.
+(1 paragraph): Project abstract.
 
 ------------------------------------------------------------------------
 
