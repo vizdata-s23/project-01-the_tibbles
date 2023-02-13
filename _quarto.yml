@@ -6,7 +6,7 @@ website:
         right:
       - icon: github
         href: https://github.com/vizdata-s23/project-01-the_tibbles
-left:
+  left:
       - href: index.qmd
       - text: "Proposal"
         href: proposal.qmd
