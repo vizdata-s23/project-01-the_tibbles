@@ -6,7 +6,7 @@ editor: visual
 ---
 
 ```{r}
-#| label: load-pkgs
+##| label: load-pkgs
 #| message: false
 suppressWarnings(library(tidyverse))
 library(knitr)
