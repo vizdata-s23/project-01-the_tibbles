@@ -12,7 +12,7 @@ suppressWarnings(library(tidyverse))
 library(knitr)
 ```
 
-# Dataset
+## Dataset
 
 ```{r}
 #| label: load-dataset
@@ -27,12 +27,12 @@ The Tibbles chose the Bigfoot dataset from TidyTuesday. The data originates from
 
 The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the potential this information holds to prove once and for all the existence (or lack thereof) of one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
-# Questions
+## Questions
 
 1.  How has the geographic distribution of Bigfoot sightings changed over time?
 2.  Are certain weather conditions more commonly associated with Bigfoot sightings than others?
 
-# Analysis plan
+## Analysis plan
 
 1.  How has the geographic distribution of Bigfoot sightings changed over time?
     -   Create new 'year' variable from existing 'date' variable
