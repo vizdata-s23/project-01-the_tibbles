@@ -48,16 +48,8 @@ For Figure 1, we will use the map plot to perform a visual observation of any po
 For Figure 2, we will look for evidence in our bar plot of a change in distribution over time by states. If states' sighting rates (as a proportion of the nation's - therefore adjusting for relative increases in sightings nationwide) go up or down in persistent rates over time, it may provide evidence that there is a relationship between time and the geographic distribution of sightings. If the sighting rates/proportions are constant, or if they seem to vary randomly, it may provide evidence that there is no such relationship.
 
 -   **Question Two: Are certain weather conditions more commonly associated with Bigfoot sightings than others?**
-    -   **Figure 1:** Using 'dew_point', 'humidity', 'temperature_mid', 'cloud_cover', 'uv_index', 'visibility', 'wind_bearing', 'wind_speed', we will make a density plot to determine at what conditions, a bigfoot sighting is most likely. After determining the most notable variables, done by looking at the distribution of the density,
+    -   **Figure 1:** Using 'dew_point', 'humidity', 'temperature_mid', 'cloud_cover', 'uv_index', 'visibility', 'wind_bearing', 'wind_speed', we will make a density plot to determine at what conditions, a bigfoot sighting is most likely. After determining the most notable variables, done finding the distributions with the least variance, we will make one figure with multiple variables with a common x axis.
 
-    -   Create a histogram and ridgeline plot (subject to change) illustrating the distribution of Bigfoot sightings with respect to 'cloud_cover', 'moon_phase', 'precip_intensity', 'precip_type', and 'visibility'
+    -   **Figure 2:** Using 'temperature_mid', 'humidity', and number of big foot sightings to create a heat map. This graph would indicated if there are any areas of high or low sightings that correspond to certain weather conditions.
 
-    -   Analyze plot for patterns in distribution
-
-    -   Create additional plots on weather variables if necessary. Weather variables include:
-
-        -   temperature_low/mid/high
-
-        -   dew_point
-
-        -   humidity
+        *Further Plan for Evaluation*
