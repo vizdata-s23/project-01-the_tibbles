@@ -18,7 +18,7 @@ library(knitr)
 #| label: load-dataset
 #| message: false
 
-bigfoot <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-13/bigfoot.csv')
+bigfoot <- readr::read_csv('data/bigfoot.csv')
 
 glimpse(bigfoot)
 ```
