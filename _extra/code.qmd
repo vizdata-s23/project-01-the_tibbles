@@ -1,0 +1,22 @@
+
+
+## Library Imports
+```{r}
+#| label: library-imports
+#| message: false
+
+
+
+```
+
+
+
+## Dataset Setup
+```{r}
+bigfoot$year <- year(as.Date(bigfoot$date))
+
+```
+
+
+
+## Plots
