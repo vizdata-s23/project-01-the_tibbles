@@ -1,19 +1,27 @@
 
 
-## Library Imports
 ```{r}
-#| label: library-imports
+#| label: load-pkgs
 #| message: false
 
-
+suppressWarnings(library(tidyverse))
+library(knitr)
+library(lubridate)
 
 ```
 
 
-
 ## Dataset Setup
 ```{r}
-bigfoot$year <- year(as.Date(bigfoot$date))
+bigfoot <- read.csv("../data/bigfoot.csv")
+
+
+# Extracts the year column from date
+bigfoot <- bigfoot |> 
+  mutate(year = substr(date, 1, 4),
+         month = substr(date, 6, 7),
+         day = substr(date, 9, 10))
+
 
 ```
 
