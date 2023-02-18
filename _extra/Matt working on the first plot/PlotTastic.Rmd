@@ -10,9 +10,7 @@ library(maps)
 library(mapdata)
 setwd("~/DataVizClass/project-1-the_tibbles")
 bigfoot <- readr::read_csv('data/bigfoot.csv')
-```
 
-```{r question-1-figure-1-plot-1 ,fig.align="center", echo = FALSE,fig.width=15, fig.height=12}
 bigfoot_xy <- bigfoot %>% select(latitude,
                                  longitude,
                                  date)
@@ -55,11 +53,28 @@ bigfoot_xy_mL_B <- bigfoot_xy_mL %>%
   summarise(longitude = median(longitude),
             latitude=median(latitude))
 
+
+```
+
+```{r question-1-figure-1-plot-1 ,fig.align="center", echo = FALSE,fig.width=15, fig.height=12}
 ggplot()+
-  geom_polygon(data=state,aes(x=long,y=lat,group=group),color="black",fill=NA,alpha=1)+
-    geom_polygon(data=usa,aes(x=long,y=lat,group=group),color="black",fill="white",alpha=0.75)+
+  geom_polygon(data=state,
+               aes(x=long,
+                   y=lat,
+                   group=group),
+               color="black",
+               fill=NA,
+               alpha=1)+
+    geom_polygon(data=usa,
+                 aes(x=long,
+                     y=lat,
+                     group=group),
+                 color="black",
+                 fill="white",
+                 alpha=0.75)+
   geom_point(data=bigfoot_xy,
-             mapping=aes(x=longitude,y=latitude),
+             mapping=aes(x=longitude,
+                         y=latitude),
              shape=18,
              color="darkgreen",
              alpha=0.25)+
@@ -74,12 +89,89 @@ ggplot()+
               ylim=c(25,50))+
     facet_wrap(~  decade,
                ncol=2)+
-  xlab("Longitude (°W)")+
-  ylab("Latitude (°N)")+
   labs(title="Bigfoot Sightings in the Mainland United States, 1869-present",
        subtitle=("Median sighting position in yellow"),
        axis.title=element_text(size=15),
-        plot.title=element_text(size=25))
+        plot.title=element_text(size=25))+
+  theme(axis.line=element_blank(),
+      axis.text.x=element_blank(),
+      axis.text.y=element_blank(),
+      axis.ticks=element_blank(),
+      axis.title.x=element_blank(),
+      axis.title.y=element_blank(),
+      panel.background=element_rect(fill="#EBEBEB"),
+      panel.grid.major=element_blank(),
+      panel.grid.minor=element_blank())
   
 ```
 
+```{r question-1-figure-1-plot-2 ,fig.align="center", echo = FALSE,fig.width=15, fig.height=12}
+
+rec_box <- data.frame(x=c(-155,-155,-55.5,-55.5,-155), 
+                      y=c(10,60,60,10,10))
+outline <- map("usa", 
+               plot=FALSE)
+outline <- data.frame(x=outline$x,
+                      y=outline$y)
+mask <- rbind(rec_box,
+              outline)
+
+ggplot()+
+  geom_polygon(data=usa,
+               aes(x=long,
+                   y=lat,
+                   group=group),
+               color=NA,
+               fill="white",
+               alpha=1,
+               linewidth=1)+
+  geom_bin2d(data=bigfoot_xy,
+             mapping=aes(x=longitude,
+                         y=latitude),
+             alpha=1,
+             binwidth = c(2, 2))+
+  geom_polygon(data=state,
+               aes(x=long,
+                   y=lat,
+                   group=group),
+               color="black",
+               fill=NA,
+               alpha=0.5)+
+  geom_polygon(data=mask,
+               aes(x=x,y=y),
+               color="#EBEBEB",
+               fill="#EBEBEB",
+               alpha=1)+
+  geom_polygon(data=usa,
+               aes(x=long,
+                   y=lat,
+                   group=group),
+               color="black",
+               fill=NA,
+               alpha=1,
+               linewidth=0.75)+
+  coord_fixed(ratio=1.3,
+    xlim=c(-125,-65),
+              ylim=c(25,50))+
+    facet_wrap(~  decade,
+               ncol=2)+
+  labs(title="Bigfoot Sightings in the Mainland United States, 1869-present")+
+theme(axis.line=element_blank(),
+      axis.text.x=element_blank(),
+      axis.text.y=element_blank(),
+      axis.ticks=element_blank(),
+      axis.title.x=element_blank(),
+      axis.title.y=element_blank(),
+      panel.background=element_blank(),
+      panel.grid.major=element_blank(),
+      panel.grid.minor=element_blank())+
+  scale_fill_gradientn(
+    colours=c('#FFFC6B',
+                       '#EAB862',
+                       '#E88340',
+                       'orangered',
+                       '#E84540',
+                       '#AD3230'),
+    limits=c(1, 100))
+  
+```
