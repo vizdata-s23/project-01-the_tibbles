@@ -1,0 +1,185 @@
+```{r question-two, message=FALSE, warning=FALSE, fig.show="hold", fig.width=10, fig.height=5}
+library(dplyr)
+library(tidyverse)
+library(ggridges)
+setwd("~/DataVizClass/project-1-the_tibbles")
+bigfoot <- readr::read_csv('data/bigfoot.csv')
+bigfoot <- bigfoot %>%
+  select(dew_point,
+         humidity,
+         temperature_mid,
+         cloud_cover,
+         uv_index,
+         visibility,
+         wind_bearing,
+         wind_speed) %>%
+  mutate(y_dummy = 1)
+
+cols_qt <- c("1" = "#519A68", 
+          "2" = "#51837A",
+          "3" = "#517387",
+          "4" = "#515E97")
+
+
+# Dew Point
+ggplot(data=bigfoot %>%
+         filter(!is.na(dew_point)),
+       mapping = aes(x = dew_point,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Dew Point (°F)")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                      values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by dew point")
+
+# Dew Point
+ggplot(data=bigfoot %>%
+         filter(!is.na(humidity)),
+       mapping = aes(x = humidity,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Humidity")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  scale_x_continuous(labels = scales::percent)+
+  labs(title="Distribution of Bigfoot sightings by humidity")
+
+# Temperature Mid
+ggplot(data=bigfoot %>%
+         filter(!is.na(temperature_mid)),
+       mapping = aes(x = temperature_mid,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Average Temperature for Day of Sighting (°F)")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by temperature")
+
+# Cloud Cover
+ggplot(data=bigfoot %>%
+         filter(!is.na(cloud_cover)),
+       mapping = aes(x = cloud_cover,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Cloud Cover")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  scale_x_continuous(labels = scales::percent)+
+  labs(title="Distribution of Bigfoot sightings by cloud cover")
+
+# UV
+ggplot(data=bigfoot %>%
+         filter(!is.na(uv_index)),
+       mapping = aes(x = uv_index,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("U.V. Index")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by U.V. Index")
+
+# Visibility
+ggplot(data=bigfoot %>%
+         filter(!is.na(visibility)),
+       mapping = aes(x = visibility,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Visibility (mi)")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by visibility")
+
+# Wind Bearing
+ggplot(data=bigfoot %>%
+         filter(!is.na(wind_bearing)),
+       mapping = aes(x = wind_bearing,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Wind Bearing (°)")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by wind bearing")
+
+# Wind Speed
+ggplot(data=bigfoot %>%
+         filter(!is.na(wind_speed)),
+       mapping = aes(x = wind_speed,
+                     y = y_dummy,
+                     fill = factor(stat(quantile))))+ 
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      quantile_lines = TRUE, 
+                      quantiles = 4, 
+                      calc_ecdf = TRUE)+
+  xlab("Wind Speed (mph)")+
+  theme(axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+        axis.title.y=element_blank(),
+        aspect.ratio=.5)+
+  scale_fill_manual(name="Quartile",
+                    values = cols_qt)+
+  labs(title="Distribution of Bigfoot sightings by wind speed")
+
+
+```
+
+Question Two: Are certain weather conditions more commonly associated with Bigfoot sightings than others?
+
+Figure 1: Using 'dew_point', 'humidity', 'temperature_mid', 'cloud_cover', 'uv_index', 'visibility', 'wind_bearing', 'wind_speed', we will make a density plot to determine at what conditions, a bigfoot sighting is most likely. After determining the most notable variables, done finding the distributions with the least variance, we will make one figure with multiple variables with a common x axis.
+
+Figure 2: Using 'temperature_mid', 'humidity', and number of big foot sightings to create a heat map. This graph would indicated if there are any areas of high or low sightings that correspond to certain weather conditions.
