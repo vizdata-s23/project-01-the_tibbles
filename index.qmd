@@ -375,10 +375,10 @@ ggplot()+
       legend.title=element_text(size=12),
       legend.text=element_text(size=12),
       plot.caption=element_text(size=12),
-      plot.margin = margin(t = 1, 
-                             r = 1, 
-                             b = 1, 
-                             l = 1))+
+      plot.margin = margin(t = 0, 
+                             r = 0, 
+                             b = 0, 
+                             l = 0))+
       scale_colour_manual(values = cols_rg,
                           name = element_blank())+
   labs(caption="Hawaii and Alaska are in the West region",
@@ -410,10 +410,10 @@ ggplot()+
       legend.title=element_text(size=12),
       legend.text=element_text(size=12),
       plot.caption=element_text(size=12),
-      plot.margin = margin(t = 1, 
-                             r = 1, 
-                             b = 1, 
-                             l = 1))+
+      plot.margin = margin(t = 0, 
+                             r = 0, 
+                             b = 0, 
+                             l = 0))+
       scale_colour_manual(values = cols_dv,
                           name = element_blank())+
   labs(caption="Hawaii and Alaska are in the Pacific division",
@@ -458,7 +458,7 @@ We are interested in investigating the relationship between weather and Bigfoot 
 
 (2-3 code blocks, 2 figures, text/code comments as needed): In this section, provide the code that generates your plots. Use scale functions to provide nice axis labels and guides. You are welcome to use theme functions to customize the appearance of your plot, but you are not required to do so. All plots must be made with **ggplot2**. Do not use base R or lattice plotting functions.
 
-```{r question-two, message=FALSE, warning=FALSE, fig.show="hold", fig.width=10, fig.height=5}
+```{r question-two, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=10, fig.height=5}
 library(dplyr)
 library(tidyverse)
 library(ggridges)
