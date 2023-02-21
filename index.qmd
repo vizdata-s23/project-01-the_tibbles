@@ -8,7 +8,7 @@ editor: visual
 
 ## Abstract
 
-The legend of Bigfoot has been a part of American lore for over a century. Over the years, there have been many recorded sighting of Bigfoot across the United States. The common geographic and weather factors between these sightings is the motivating question for this research. Using data from the Bigfoot Fied Researchers Organization website, we investigate the most common state and region for Bigfoot sightings and the weather conditions under which Bigfoot sightings are most common. Our findings hightlight trends in the geographical spread of Bigfoot sightings, including Bigfoot's recent reportings in Florida from Washington State, and report the most correlated weather conditions for sightings to occur, including 100% visibility conditions with humidity around 60%. 
+The legend of Bigfoot has been a part of American lore for over a century. Over the years, there have been many recorded sighting of Bigfoot across the United States. The common geographic and weather factors between these sightings is the motivating question for this research. Using data from the Bigfoot Fied Researchers Organization website, we investigate the most common state and region for Bigfoot sightings and the weather conditions under which Bigfoot sightings are most common. Our findings hightlight trends in the geographical spread of Bigfoot sightings, including Bigfoot's recent reportings in Florida from Washington State, and report the most correlated weather conditions for sightings to occur, including 100% visibility conditions with humidity around 60%.
 
 [***!!!!! NOT COMPLETE !!!!!***]{.underline}
 
@@ -18,15 +18,15 @@ The legend of Bigfoot has been a part of American lore for over a century. Over 
 
 The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates from a publicly available database on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset created by Timothy Renner first became available on Data World in 2017. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as lengthier descriptions of the sighting observations, time and geographic details, and weather details.
 
-The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about  one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
+The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
 [***!!!!! NOT REWRITTEN -- REMOVE THIS AFTER REVIEWING BEFORE FINAL TURN-IN !!!!!***]{.underline}
 
-## Question 1: Change in Geographic Distribution of Bigfoot Sightings over Time
+## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
 
 ### Introduction
 
-The first question looks at the geographic distribution of Bigfoot sightings, and how these observations changes over the decades. We use the latitude, longitude, and date variables to determine the precise location and decade the observation occurred.
+Our first question looks at the geographic distribution of Bigfoot sightings, and how this distribution has changed over the decades. We use the latitude, longitude, and date variables to determine the precise location and decade the observation occurred.
 
 The Tibbles are interested in this because investigating changes in the geographic distribution of Bigfoot sightings over time could provide insights into patterns of human perception and belief in paranormal phenomena, as well as the impact of media and popular culture on these beliefs. Understanding these changes in the geographic distribution of sightings over time could also shed new light on this elusive creature.
 
@@ -34,11 +34,9 @@ The Tibbles are interested in this because investigating changes in the geograph
 
 ### Approach
 
-Our approach to the first question involved the visualization of geographic information in four ways. The first way involved creating a scatter plot of Bigfoot sightings overlayed on a map of the mainland United States. This would allow us to directly observe clusters of sightings and areas of relative absence. The second way is by creating a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density. When Bigfoot sightings are common in a region, they overlap when plotted individually. The heatmap aggregates these sightings into a common grid space which lights up brightly, easily identifying the hotspot. In both approaches, the plots were faceted by decade so that we could make comparisons across time.
+Our approach to the first question involved the visualization of geographic information in four ways. The first way involved creating a scatter plot of Bigfoot sightings overlayed on a map of the mainland United States. This would allow us to directly observe clusters of sightings and areas of relative absence. The second way is by creating a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density. When Bigfoot sightings are common in a region, they overlap when plotted individually. The heat-map aggregates these sightings into a common grid space which lights up brightly, easily identifying the hot spot. In both approaches, the plots were faceted by decade so that we could make comparisons across time.
 
-The third and fourth approach to answering the first question involved the use of stacked bar graphs to track the proportion of Bigfoot sightings, by decade, recorded in each region of the country. We used a stack bar graph to visualize how the distribution among regions changes over time. Although the exact proportion for a region is slightly more difficult to determine in a stacked bar graph, the density of data is much greater than for a conventional bar plot that might display the regions in sperate colums. We chose to graph proportions and not nominal counts, because the focus of our research question is not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, since some decades produced dramatically more sightings (in our dataset) than others, it may have been near impossible to clearly observe trends in the less-populated decades of our data. Lastly, we decided to use regions instead of states as 50 invididual colors would be difficult to read, trading precision for clarity. 
-
-[***!!!!! NOT COMPLETE !!!!! REWRITE AND REMOVE THIS BEFORE TURNING IN***]{.underline}
+The third and fourth approach to answering the first question involved the use of stacked bar graphs to track the proportion of Bigfoot sightings, by decade, recorded in each region of the country. We used a stack bar graph to visualize how the distribution among regions changes over time. Although the exact proportion for a region is slightly more difficult to determine in a stacked bar graph, the density of data is much greater than for a conventional bar plot that might display the regions in seperate columns. We chose to graph proportions and not nominal counts, because the focus of our research question is not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, since some decades produced dramatically more sightings (in our data-set) than others, it may have been near impossible to clearly observe trends in the less-populated decades of our data. Lastly, we decided to use regions instead of states as 50 individual colors would be difficult to read (trading precision for clarity).
 
 ### Analysis
 
@@ -421,8 +419,8 @@ ggplot()+
 
 Notable trends
 
-1.  After 2010, the Midwest has had a lot more relative sightings, and so has the Northeast, according to the barplot. The heatmap shows that Bigfoot is common in Eastern Ohio, and there are now more sightings along the Hudson River Valley (the NY/VT/MA border). Worth noting that Ohio has been popular since the 1970s, but after the 2000s the other regions fell off. The median Bigfoot sighting left Missouri and moved into Southern Illinois for the first time in our data after 2010. Illinois saw no decline in Bigfoot activity that the rest of the nation did on the heatmap.
-2.  Bigfoot always concentrated in Washington State - no surprise - but that hotspot seems to have spread out a bit more, lighting up Oregon and Idaho Panhandle in the East.
+1.  After 2010, the Midwest has had a lot more relative sightings, and so has the Northeast, according to the bar-plot. The heat-map shows that Bigfoot is common in Eastern Ohio, and there are now more sightings along the Hudson River Valley (the NY/VT/MA border). Worth noting that Ohio has been popular since the 1970s, but after the 2000s the other regions fell off. The median Bigfoot sighting left Missouri and moved into Southern Illinois for the first time in our data after 2010. Illinois saw no decline in Bigfoot activity that the rest of the nation did on the heat-map.
+2.  Bigfoot always concentrated in Washington State - no surprise - but that hot spot seems to have spread out a bit more, lighting up Oregon and Idaho Panhandle in the East.
 3.  Eastern Texas up the OK/AR border lit up big time in the 2000s but that trend is almost totally absent in other decades. West South Central division doubled from 1990s to 2000s.
 4.  Florida has become a center of Bigfoot activity, especially the swampy southern parts. The Space Coast has the highest density of Bigfoot sightings outside of Northeastern Ohio, Illinois, or Washington.
 5.  Bigfoot is spreading his wings! The 2000s brought him/her to the plains (North Dakota, Wyoming, South Dakota, and Nebraska) in greater numbers than ever before. In the 1970s-1980s data you can draw a straight line through the center of the country where Bigfoot never went, but Bigfoot is now regularly spotted in places like the desert of Southwest Texas.
@@ -442,9 +440,6 @@ We are interested in investigating the relationship between weather and Bigfoot 
 [***!!!!! NOT COMPLETE !!!!!***]{.underline}
 
 ### Approach
-
-
-
 
 [***!!! NOT COMPLETE !!!***]{.underline}
 
