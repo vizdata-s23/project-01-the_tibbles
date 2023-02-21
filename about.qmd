@@ -8,5 +8,5 @@ This project was developed by **The Tibbles** For [STA/ISS 313: Advanced Data Vi
 
 -   Aryaman Babber: Aryaman is a senior studying Data Science, with skills in statistical analysis and machine learning.
 -   Nhu Bui: Nhu is a junior double-majoring in Environmental Science and Policy and English who is interested in the role of data visualization in effective science communication.
--   Anik Sen: One sentence description of Team member 3 (e.g., year, major, etc.).
+-   Anik Sen: Anik is a junior majoring in Psychology with minors in Statistical Science and Education, interested in utilizing data visualization to communicate complex ideas to the masses.
 -   Matt Mohn: One sentence description of Team member 4 (e.g., year, major, etc.).
