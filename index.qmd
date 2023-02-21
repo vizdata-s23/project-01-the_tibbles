@@ -22,23 +22,26 @@ The Tibbles opted to work with this dataset because of our shared predilection f
 
 [***!!!!! NOT REWRITTEN -- REMOVE THIS AFTER REVIEWING BEFORE FINAL TURN-IN !!!!!***]{.underline}
 
+(aryaman - i edited this a little but think its good)
+
 ## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
 
 ### Introduction
 
 Our first question looks at the geographic distribution of Bigfoot sightings, and how this distribution has changed over the decades. We use the latitude, longitude, and date variables to determine the precise location and decade the observation occurred.
 
-The Tibbles are interested in this because investigating changes in the geographic distribution of Bigfoot sightings over time could provide insights into patterns of human perception and belief in paranormal phenomena, as well as the impact of media and popular culture on these beliefs. Understanding these changes in the geographic distribution of sightings over time could also shed new light on this elusive creature.
+We are interested in this because investigating changes in the geographic distribution of Bigfoot sightings over time could provide insights into patterns of human perception and belief in paranormal phenomena, as well as the impact of media and popular culture on these beliefs. Understanding these changes in the geographic distribution of sightings over time could also shed new light on this elusive creature.
 
 ### Approach
 
-Our approach to the first question involved the visualization of geographic information in four ways. The first way involved creating a scatter plot of Bigfoot sightings overlayed on a map of the mainland United States. This would allow us to directly observe clusters of sightings and areas of relative absence. The second way is by creating a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density. When Bigfoot sightings are common in a region, they overlap when plotted individually. The heat-map aggregates these sightings into a common grid space which lights up brightly, easily identifying the hot spot. In both approaches, the plots were faceted by decade so that we could make comparisons across time.
+To address the first question, we utilized four different visualization
+techniques. The first method involved creating a scatter plot of Bigfoot sightings overlaid on a map of the mainland United States. This allowed us to visually observe clusters of sightings and areas of relative absence. The second method used a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density, which allowed for the identification of hot spots in regions with higher frequencies of Bigfoot sightings. We faceted both approaches by decade to facilitate comparisons across time.
 
-The third and fourth approach to answering the first question involved the use of stacked bar graphs to track the proportion of Bigfoot sightings, by decade, recorded in each region of the country. We used a stack bar graph to visualize how the distribution among regions changes over time. Although the exact proportion for a region is slightly more difficult to determine in a stacked bar graph, the density of data is much greater than for a conventional bar plot that might display the regions in seperate columns. We chose to graph proportions and not nominal counts, because the focus of our research question is not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, since some decades produced dramatically more sightings (in our data-set) than others, it may have been near impossible to clearly observe trends in the less-populated decades of our data. Lastly, we decided to use regions instead of states as 50 individual colors would be difficult to read (trading precision for clarity).
+The third and fourth methods employed stacked bar graphs to track the proportion of Bigfoot sightings recorded in each region of the country by decade. We used a stack bar graph to visualize changes in the distribution among regions over time. While determining the exact proportion for a region was slightly more difficult in a stacked bar graph, the density of data was much greater than for a conventional bar plot that might display regions in separate columns. We chose to graph proportions rather than nominal counts, as the focus of our research question was not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, some decades produced dramatically more sightings than others in the data set, making it difficult to observe trends in the less-populated decades of our data. Lastly, we used Census regions instead of states, since 50 individual colors would have been difficult to read (trading precision for clarity).
 
 ### Analysis
 
-```{r question-1-SETUP, warning=FALSE, message=FALSE, echo=FALSE}
+```{r question_1_SETUP, warning=FALSE, message=FALSE, echo=FALSE}
 #install.packages("usmap")
 #install.packages("mapdata")
 library(knitr)
@@ -98,7 +101,7 @@ bigfoot_xy <- bigfoot_xy |>
   mutate(colour_dummy = "Sighting")
 ```
 
-```{r question-1-MAP-PLOTS, fig.align="center", warning=FALSE, message=FALSE,fig.width=15, fig.height=12, fig.show='hold', echo=FALSE}
+```{r question_1_MAP_PLOTS, fig.align="center", warning=FALSE, message=FALSE,fig.width=15, fig.height=12, fig.show='hold', echo=FALSE}
 cols <- c("Sighting" = "darkgreen", 
           "Median" = "gold4")
 ggplot()+
@@ -223,7 +226,7 @@ theme(axis.line=element_blank(),
     name="Incidence")
 ```
 
-```{r question-1-BARPLOTS, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
+```{r question_1_BARPLOTS, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
 cols_dv <- c("West South Central" = "firebrick1", 
           "East South Central" = "firebrick3",
           "South Atlantic" = "firebrick4",
@@ -351,7 +354,7 @@ ggplot(data = bigfoot_sub_dv,
 
 ```
 
-```{r question-1-REFMAPS, fig.align="center", warning=FALSE, message=FALSE,fig.width=10, fig.height=5.2, fig.show='hold',echo=FALSE}
+```{r question_1_REFMAPS, fig.align="center", warning=FALSE, message=FALSE,fig.width=10, fig.height=5.2, fig.show='hold',echo=FALSE}
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
