@@ -38,7 +38,7 @@ The third and fourth approach to answering the first question involved the use o
 
 ### Analysis
 
-```{r question-1-setup, warning=FALSE, message=FALSE, echo=FALSE}
+```{r question-1-SETUP, warning=FALSE, message=FALSE, echo=FALSE}
 #install.packages("usmap")
 #install.packages("mapdata")
 library(knitr)
@@ -98,7 +98,7 @@ bigfoot_xy <- bigfoot_xy |>
   mutate(colour_dummy = "Sighting")
 ```
 
-```{r question-1-figures-1, fig.align="center", warning=FALSE, message=FALSE,fig.width=15, fig.height=12, fig.show='hold', echo=FALSE}
+```{r question-1-MAP-PLOTS, fig.align="center", warning=FALSE, message=FALSE,fig.width=15, fig.height=12, fig.show='hold', echo=FALSE}
 cols <- c("Sighting" = "darkgreen", 
           "Median" = "gold4")
 ggplot()+
@@ -223,7 +223,7 @@ theme(axis.line=element_blank(),
     name="Incidence")
 ```
 
-```{r question-1-figures-2, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
+```{r question-1-BARPLOTS, fig.align="center", fig.width=15, fig.height=12, warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
 cols_dv <- c("West South Central" = "firebrick1", 
           "East South Central" = "firebrick3",
           "South Atlantic" = "firebrick4",
@@ -335,6 +335,23 @@ state_mp <- state_mp |>
                                 "South",
                                 "West")))
 
+ggplot(data = bigfoot_sub_dv,
+       mapping = aes(fill=division, 
+                     y=num, 
+                     x=decade)) + 
+    geom_bar(position="fill", 
+             stat="identity")+
+  scale_fill_manual(values = cols_dv,
+                          name = "U.S. Census\nDivision")+
+  scale_y_continuous(labels = scales::percent)+
+  labs(title="Geographic distribution of U.S. Bigfoot sightings, 1869-present")+
+  xlab("Decade")+
+  ylab("Proportion")+
+  theme_bw()
+
+```
+
+```{r question-1-REFMAPS, fig.width=15, fig.height=8.5, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
@@ -366,21 +383,6 @@ ggplot()+
               xlim=c(-125,-65),
               ylim=c(25,50))
 
-
-ggplot(data = bigfoot_sub_dv,
-       mapping = aes(fill=division, 
-                     y=num, 
-                     x=decade)) + 
-    geom_bar(position="fill", 
-             stat="identity")+
-  scale_fill_manual(values = cols_dv,
-                          name = "U.S. Census\nDivision")+
-  scale_y_continuous(labels = scales::percent)+
-  labs(title="Geographic distribution of U.S. Bigfoot sightings, 1869-present")+
-  xlab("Decade")+
-  ylab("Proportion")+
-  theme_bw()
-
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
@@ -411,6 +413,7 @@ ggplot()+
   coord_fixed(ratio=1.3,
               xlim=c(-125,-65),
               ylim=c(25,50))
+
 ```
 
 ### Discussion
