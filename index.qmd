@@ -431,11 +431,13 @@ Notable trends
 
 [***!!!!! NOT COMPLETE !!!!!***]{.underline}
 
-## Question 2: Are certain weather conditions more commonly associated with Bigfoot sightings than others?
+## Question 2: Weather Conditions and their Effects on Bigfoot Sightings
 
 ### Introduction
 
-(1-2 paragraphs): Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you're interested in this question.
+Question 2 investigates the relationship between weather conditions and the number of Bigfoot sightings. The analysis focuses on seven weather variables, including dew point, humidity, temperature, cloud cover, UV index, visibility, wind bearing, and wind speed. By examining changes in these variables over time and their association with the number of Bigfoot sightings, we aim to gain a better understanding of the conditions that may be associated with Bigfoot sightings.
+
+We are interested in investigating the relationship between weather and Bigfoot sightings because it could contribute to a better understanding of the factors that influence human perceptions of the natural world. In addition, it could lead to new discoveries or hypotheses about the nature of Bigfoot.
 
 [***!!!!! NOT COMPLETE !!!!!***]{.underline}
 
