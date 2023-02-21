@@ -1,12 +1,16 @@
 ---
-title: "Statsquatch: An Expedition into Bigfoot Sightings"
+title: "Statsquatch: A Data Expedition into Bigfoot Sightings"
 subtitle: "STA/ISS 313 - Spring 2023 - Project 1"
-author: "The Tibbles"
+author: "The Tibbles: Anik Sen, Aryaman Babber, Matt Mohn, Nhu Bui"
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/foggy-forest-4.jpg
   data-background-size: stretch
+  data-background-opacity: "0.7"
   data-slide-number: none
-format: revealjs
+format:
+  revealjs:
+    theme: moon
+  
 editor: visual
 execute:
   echo: false
@@ -18,9 +22,9 @@ execute:
 
 # Add any additional packages you need to this chunk
 # Remove any packages from this list that you're not using
+
 library(tidyverse)
 library(tidymodels)
-library(palmerpenguins)
 library(gt)
 ```
 
@@ -44,6 +48,8 @@ knitr::opts_chunk$set(
 
 # Load your data here
 ```
+
+# Introduction
 
 # Using Quarto for presentations
 
