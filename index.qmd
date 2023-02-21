@@ -22,7 +22,7 @@ The Tibbles opted to work with this dataset because of our shared predilection f
 
 [***!!!!! NOT REWRITTEN -- REMOVE THIS AFTER REVIEWING BEFORE FINAL TURN-IN !!!!!***]{.underline}
 
-(aryaman - i edited this a little but think its good)
+***(aryaman - i edited this a little but think its good)***
 
 ## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
 
