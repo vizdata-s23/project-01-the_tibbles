@@ -223,7 +223,7 @@ theme(axis.line=element_blank(),
     name="Incidence")
 ```
 
-```{r question-1-BARPLOTS, fig.align="center", fig.width=15, fig.height=12, warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
+```{r question-1-BARPLOTS, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
 cols_dv <- c("West South Central" = "firebrick1", 
           "East South Central" = "firebrick3",
           "South Atlantic" = "firebrick4",
@@ -351,7 +351,7 @@ ggplot(data = bigfoot_sub_dv,
 
 ```
 
-```{r question-1-REFMAPS, fig.width=15, fig.height=8.5, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
+```{r question-1-REFMAPS, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
