@@ -1,4 +1,4 @@
-# data
+# Data
 -   **Bigfoot**: A collection of over 5,000 reported sightings of the elusive and legendary creature known as Bigfoot, or Sasquatch, in various locations across North America. 
 -   **CensusDivisions**: A collection of information about the states in the United States, including state names, state codes, regions, and divisions
 
