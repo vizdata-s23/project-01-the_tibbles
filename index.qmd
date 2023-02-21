@@ -351,7 +351,7 @@ ggplot(data = bigfoot_sub_dv,
 
 ```
 
-```{r question-1-REFMAPS, fig.align="center", warning=FALSE, message=FALSE, fig.show='hold',echo=FALSE}
+```{r question-1-REFMAPS, fig.align="center", warning=FALSE, message=FALSE,fig.width=15, fig.height=7.7, fig.show='hold',echo=FALSE}
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
