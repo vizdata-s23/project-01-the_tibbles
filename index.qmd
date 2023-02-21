@@ -1,5 +1,5 @@
 ---
-title: "Statsquatch: An Expedition into Bigfoot Sightings"
+title: "Statsquatch: A Data Expedition into Bigfoot Sightings"
 subtitle: "STA/ISS 313 - Project 1"
 author: "The Tibbles"
 format: html
