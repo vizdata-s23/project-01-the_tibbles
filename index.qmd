@@ -8,7 +8,7 @@ editor: visual
 
 ## Abstract
 
-Abstract Goes Here
+The legend of Bigfoot has been a part of American lore for over a century. Over the years, there have been many recorded sighting of Bigfoot across the United States. The common geographic and weather factors between these sightings is the motivating question for this research. Using data from the Bigfoot Fied Researchers Organization website, we investigate the most common state and region for Bigfoot sightings and the weather conditions under which Bigfoot sightings are most common. Our findings hightlight trends in the geographical spread of Bigfoot sightings, including Bigfoot's recent reportings in Florida from Washington State, and report the most correlated weather conditions for sightings to occur, including 100% visibility conditions with humidity around 60%. 
 
 [***!!!!! NOT COMPLETE !!!!!***]{.underline}
 
