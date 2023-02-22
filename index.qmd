@@ -451,7 +451,7 @@ What this data, taken as a whole, tell us, is that the geographic distribution o
 
 ### Introduction
 
-Our second question investigates the relationship between precipitation and the number of Bigfoot sightings. The analysis focuses on two of the three precipitation-related variables: precip_probability and precip_type. By examining the relationship between the precipitation conditions and the number of Bigfoot sightings, we attempt to derive and explain an association between the conditions and Bigfoot sightings. The legends surrounding precipitation weather events eclipse those surrounding Bigfoot. Thus, precipitation data and may be able to explain the sightings from in two ways: these variables can contribute to a better understanding of an important physical weather factor that can influence human perception of the cryptic world, and/or it can lead to new discoveries and hypotheses about the nature of Bigfoot and his existence.
+Our second question investigates the relationship between precipitation and the number of Bigfoot sightings. The analysis focuses on two of the three precipitation-related variables: precip_probability and precip_type. By examining the relationship between the precipitation conditions and the number of Bigfoot sightings, we attempt to derive and explain an association between the conditions and Bigfoot sightings. The legends surrounding precipitation weather events eclipse those surrounding Bigfoot. Thus, precipitation probability and type may be able to explain the sightings from in two ways: these variables can contribute to a better understanding of an important physical weather factor that can influence human perception of the cryptic world, and/or it can lead to new discoveries and hypotheses about the nature of Bigfoot and his existence.
 
 ### Approach
 
@@ -575,3 +575,6 @@ bigfoot_precip |>
 ### Discussion
 
 (1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
+
+Our figures demonstrate a clear trend of rainy conditions being present for a significant amount of Bigfoot sightings. In our first figure (insert tag to figure one)  
+
