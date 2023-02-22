@@ -510,12 +510,15 @@ bigfoot_precip <- bigfoot |>
     )
   ) |>
   mutate(
-    precip_type = ifelse(is.na(precip_type), ifelse(!is.na(temperature_mid), "None", precip_type), precip_type)
+    precip_type =
+      ifelse(is.na(precip_type),
+        ifelse(!is.na(temperature_mid), "None", precip_type), precip_type
+      )
   ) |>
   select(
     precip_type, season, region
   ) |>
-  filter(season!="Unknown" & !is.na(precip_type)) |>
+  filter(season != "Unknown" & !is.na(precip_type)) |>
   mutate(precipitation = ifelse(precip_type == "None", "No", "Yes"))
 
 
@@ -524,10 +527,16 @@ bigfoot_precip <- bigfoot |>
 bigfoot_precip |>
   ggplot() +
   geom_bar(mapping = aes(y = precipitation, fill = precip_type)) +
-  facet_wrap(~season, ncol = 1) +
+  facet_wrap(
+    ~ factor(
+      season,
+      levels = c("Fall", "Summer", "Spring", "Winter")
+    ),
+    ncol = 1
+  ) +
   scale_fill_manual(
     values = cols_rg,
-    name = "Precipitation"
+    name = "Precipitation Type"
   ) +
   labs(
     title = "Bigfoot Sightings by Precipitation: Singin' in the Rain",
