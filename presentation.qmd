@@ -22,10 +22,17 @@ execute:
 
 # Add any additional packages you need to this chunk
 # Remove any packages from this list that you're not using
-
+library(tidyr)
+library(knitr)
+library(viridis)
 library(tidyverse)
+library(dplyr)
+library(maps)
+library(stringr)
+library(mapdata)
 library(tidymodels)
 library(gt)
+library(palmerpenguins)
 ```
 
 ```{r}
@@ -46,10 +53,23 @@ knitr::opts_chunk$set(
 #| label: load-data
 #| include: false
 
-# Load your data here
+bigfoot <- readr::read_csv('data/bigfoot.csv')
+census <- readr::read_csv('data/CensusDivisions.csv')
 ```
 
 # Introduction
+
+## Bigfoot Dataset
+
+# Question 1: How does the geographic distribution of Bigfoot sightings change over time?
+
+# Question 2: How are precipitation conditions associated with Bigfoot sightings?
+
+# The End
+
+![](https://www.history.com/.image/ar_4:3%252Cc_fill%252Ccs_srgb%252Cfl_progressive%252Cq_auto:good%252Cw_1200/MTU3ODc4NjAxOTExNzA2OTUz/bigfoot-517258962.jpg)
+
+Happy Hunting!
 
 # Using Quarto for presentations
 
