@@ -9,7 +9,7 @@ title-slide-attributes:
   data-slide-number: none
 format:
   revealjs:
-    theme: moon
+    theme:  [serif, 'data/customtheming.scss']
   
 editor: visual
 execute:
