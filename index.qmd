@@ -34,7 +34,7 @@ The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates fro
 
 The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with a variety of associated categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
-## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
+## Question 1: Changes in the Geographic Distribution of Bigfoot Sightings over Time
 
 ### Introduction
 
