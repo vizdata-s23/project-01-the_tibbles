@@ -63,6 +63,27 @@ census <- readr::read_csv('data/CensusDivisions.csv')
 
 # Question 1: How does the geographic distribution of Bigfoot sightings change over time?
 
+## Plot 1
+
+::: columns
+::: {.column width="50%"}
+geographic map
+:::
+
+::: {.column width="50%"}
+visualization
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+geographic map
+:::
+
+::: {.column width="50%"}
+:::
+:::
+
 # Question 2: How are precipitation conditions associated with Bigfoot sightings?
 
 # The End
