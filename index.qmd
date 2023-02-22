@@ -28,11 +28,11 @@ The legendary cryptid Bigfoot (also commonly known as Sasquatch, Yeti, or Yowie)
 
 **READ AND REVIEWED BY MATT**
 
-**READ AND REVIEWED BY NH**
+**READ AND REVIEWED BY NHU**
 
-The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates from a publicly available database on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset created by Timothy Renner first became available on Data World in 2017. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as lengthier descriptions of the sighting observations, time and geographic details, and weather details.
+The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates from a digital database publically available on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset itself, which first became available on Data World in 2017, was created by Timothy Renner. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as either lengthier verbal descriptions of the sighting observations or a combination of numerical and categorical variables that describe details regarding time, geographic, and weather conditions.
 
-The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
+The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with a variety of associated categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
 ## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
 
