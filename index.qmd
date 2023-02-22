@@ -329,7 +329,6 @@ cols_dv <- c(
 )
 
 bigfoot <- bigfoot |> filter(!is.na(date))
-census <- readr::read_csv("data/CensusDivisions.csv")
 census <- census |> rename(
   "state" = "State",
   "region" = "Region",
@@ -441,7 +440,7 @@ Our second question investigates the relationship between weather conditions and
 ### Analysis
 
 ```{r}
-#| label: question-2-vis-1
+#| label: question-2-PROBABILITY_PLOT
 #| warning: FALSE
 #| message: FALSE
 #| echo: FALSE
@@ -449,7 +448,8 @@ Our second question investigates the relationship between weather conditions and
 #| fig.width = 15
 #| fig.height = 5
 
-bigfoot <- readr::read_csv("data/bigfoot.csv")
+#DATA WRANGLING
+
 precip_probability_median <- bigfoot |>
   filter(!is.na(precip_probability)) |>
   filter(precip_probability > 0) |>
@@ -457,6 +457,9 @@ precip_probability_median <- bigfoot |>
   group_by(season) |>
   summarize(median = median(precip_probability)) |>
   mutate(median_percent = percent(median))
+
+
+#PRECIPITATION PROBABILITY PLOT
 
 bigfoot |>
   filter(!is.na(precip_probability)) |>
@@ -480,51 +483,58 @@ bigfoot |>
   theme_minimal()
 ```
 
-```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
-library(dplyr)
-library(tidyverse)
-library(ggridges)
-library(knitr)
+```{r}
+#| label: question-2-TYPE_PLOT
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+#| fig.show: "hold"
+#| fig.width: 15
+#| fig.height: 5
 
-bigfoot <- readr::read_csv('data/bigfoot.csv')
-census <- readr::read_csv('data/CensusDivisions.csv')
-census <- readr::read_csv('data/CensusDivisions.csv')
-census <- census |> rename("state" = "State",
-                            "region" = "Region", 
-                            "division" = "Division")
-bigfoot <- left_join(bigfoot,
-                     census, 
-                     by="state")
+#SET-UP
+
+library(ggridges)
+
+
+#DATA WRANGLING
 
 cols_rg <- c("None" = "goldenrod1", 
           "Rain" = "royalblue",
           "Snow" = "lightblue")
 
-bigfoot <- bigfoot %>%
-  mutate(precip_type=ifelse(precip_type=="rain","Rain",ifelse(precip_type=="snow","Snow",precip_type)))
-bigfoot <- bigfoot %>%
-  mutate(precip_type=ifelse(is.na(precip_type),ifelse(!is.na(temperature_mid),"None",precip_type),precip_type))
-bigfoot <- bigfoot %>%
-  select(precip_type,season,region)
+bigfoot_precip <- bigfoot |>
+  mutate(
+    precip_type = ifelse(
+      precip_type == "rain", "Rain", ifelse(precip_type == "snow", "Snow", precip_type)
+    )
+  ) |>
+  mutate(
+    precip_type = ifelse(is.na(precip_type), ifelse(!is.na(temperature_mid), "None", precip_type), precip_type)
+  ) |>
+  select(
+    precip_type, season, region
+  ) |>
+  filter(season!="Unknown" & !is.na(precip_type)) |>
+  mutate(precipitation = ifelse(precip_type == "None", "No", "Yes"))
 
-bigfoot_edit <- bigfoot
 
-bigfoot_edit <- bigfoot_edit %>%
-  filter(season!="Unknown" & !is.na(precip_type))
+#PRECIPITATION TYPE BARPLOT
 
-ggplot() +
-  geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2") +
+bigfoot_precip |>
+  ggplot() +
+  geom_bar(mapping = aes(y = precipitation, fill = precip_type)) +
   facet_wrap(~season, ncol = 1) +
-  xlab("Bigfoot Sightings") +
-  ylab("U.S. Census Region") +
   scale_fill_manual(
     values = cols_rg,
     name = "Precipitation"
   ) +
   labs(
     title = "Bigfoot Sightings by Precipitation: Singin' in the Rain",
-    subtitle = "Broken down by U.S. Census region"
-  )
+    x = "Bigfoot Sightings",
+    y = "Precipitation?"
+  ) +
+  theme_minimal()
 ```
 
 ### Discussion
