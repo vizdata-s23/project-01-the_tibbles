@@ -9,7 +9,7 @@ title-slide-attributes:
   data-slide-number: none
 format:
   revealjs:
-    theme: serif
+    theme: [serif, rozdoyle.scss]
   
 editor: visual
 execute:
