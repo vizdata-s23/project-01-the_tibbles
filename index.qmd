@@ -235,7 +235,7 @@ census <- census |> rename("state" = "State",
                             "division" = "Division")
 bigfoot <- left_join(bigfoot,
                      census, 
-                     by="state")
+                     by= "state")
 bigfoot_sub <- bigfoot |> 
   select(state, 
          region, 
@@ -311,7 +311,7 @@ Lastly, Bigfoot is moving east! After 2010, the median Bigfoot sighting jumped t
 
 What this data, taken as a whole, tell us, is that the geographic distribution of sightings is highly variable. We venture two explanations: first, that Bigfoot's tastes themselves are changing. Like all creatures, Bigfoot may have gotten bored and spread his wings- maybe for a yeti, Lake Tahoe was the place to be in 2007. Alternatively, we argue, Bigfoot sightings are a highly social event--- people think they see Bigfoot and tell their family, friends, and even the media--- making it much more likely that the individuals exposed to that information will earnestly (or for attention) claim to sight Bigfoot later. If one sighting can 'trigger' another, it would be logical for them to appear in geographical clusters like we observed forming and dissipating. While we cannot conclusively resolve the matter of Bigfoot's existence, we hypothesize that the latter explanation is more likely.
 
-## Question 2: Precipitation Conditions and their Effects on Bigfoot Sightings
+## Question 2: What precipitation conditions are most commonly associated with Bigfoot sightings?
 
 ### Introduction
 
@@ -320,6 +320,40 @@ Our second question investigates the relationship between weather conditions and
 ### Approach
 
 ### Analysis
+
+```{r}
+#| label: question-2-vis-1
+#| warning: FALSE
+#| message: FALSE
+#| echo: FALSE
+#| fig.show = "hold"
+#| fig.width = 15
+#| fig.height = 5
+
+bigfoot <- readr::read_csv('data/bigfoot.csv')
+precip_probability_median <- bigfoot |>
+  filter(!is.na(precip_probability)) |>
+  filter(precip_probability > 0) |>
+  filter(season != "Unknown") |>
+  group_by(season) |>
+  summarize(median = median(precip_probability)) |>
+  mutate(median_percent = percent(median))
+
+bigfoot |>
+  filter(!is.na(precip_probability)) |>
+  filter(precip_probability > 0) |>
+  filter(season != "Unknown") |>
+  ggplot(aes(x = precip_probability, y = season)) +
+  geom_boxplot() +
+  geom_text(data = precip_probability_median, aes(x = median, y = season, label = median_percent), size = 3, hjust = 2) +
+  scale_y_discrete(labels = c("Fall", "Summer", "Spring", "Winter")) +
+  coord_cartesian(clip = "off") +
+  labs(title = "Precipitation Probability during Bigfoot Sightings by Season", 
+       x = "Precipitation Probability" ,
+       y = "Season") +
+  theme_minimal()
+  
+```
 
 ```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
 library(dplyr)
@@ -339,7 +373,7 @@ bigfoot <- left_join(bigfoot,
 
 cols_rg <- c("None" = "goldenrod1", 
           "Rain" = "royalblue",
-          "Snow" = "white")
+          "Snow" = "lightblue")
 
 bigfoot <- bigfoot %>%
   mutate(precip_type=ifelse(precip_type=="rain","Rain",ifelse(precip_type=="snow","Snow",precip_type)))
@@ -355,7 +389,7 @@ bigfoot_edit <- bigfoot_edit %>%
 
 ggplot()+
   geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2")+
-  facet_wrap(~season,nrow=2)+
+  facet_wrap(~season,ncol = 1)+
   xlab("Bigfoot Sightings")+
   ylab("U.S. Census Region")+
   scale_fill_manual(values = cols_rg,
