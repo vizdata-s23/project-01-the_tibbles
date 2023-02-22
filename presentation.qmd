@@ -216,13 +216,14 @@ cols <- c(
 
 ```
 
-## Map Plots: Bigfoot Sightings Pre-1970
+## Map Plots: Bigfoot Sightings in Mainland US [Pre-1970]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-pre-1970
 #| echo: false
 #| out-width: "100%"
 
@@ -317,6 +318,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-pre-1970
 #| echo: false
 #| out-width: "100%"
 
@@ -409,13 +411,14 @@ ggplot() +
 :::
 :::
 
-## Map Plots: 1970s
+## Map Plots: Bigfoot Sightings in Mainland US [1970s]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-1970s
 #| echo: false
 #| out-width: "100%"
 
@@ -510,6 +513,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-1970s
 #| echo: false
 #| out-width: "100%"
 
@@ -603,13 +607,14 @@ ggplot() +
 :::
 :::
 
-## Map Plots: 1980s
+## Map Plots: Bigfoot Sightings in Mainland US [1980s]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-1980s
 #| echo: false
 #| out-width: "100%"
 
@@ -704,6 +709,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-1980s
 #| echo: false
 #| out-width: "100%"
 
@@ -796,13 +802,14 @@ ggplot() +
 :::
 :::
 
-## Map Plots: 1990s
+## Map Plots: Bigfoot Sightings in Mainland US [1990s]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-1990s
 #| echo: false
 #| out-width: "100%"
 
@@ -897,6 +904,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-1990s
 #| echo: false
 #| out-width: "100%"
 
@@ -989,13 +997,14 @@ ggplot() +
 :::
 :::
 
-## Map Plots: 2000s
+## Map Plots: Bigfoot Sightings in Mainland US [2000s]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-2000s
 #| echo: false
 #| out-width: "100%"
 
@@ -1090,6 +1099,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-2000s
 #| echo: false
 #| out-width: "100%"
 
@@ -1182,13 +1192,14 @@ ggplot() +
 :::
 :::
 
-## Map Plots: Post-2010
+## Map Plots: Bigfoot Sightings in Mainland US [Post-2010]{.underline}
 
 <br/> <br/>
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-scatter-post2010
 #| echo: false
 #| out-width: "100%"
 
@@ -1283,6 +1294,7 @@ mask <- rbind(
 
 ::: {.column width="50%"}
 ```{r}
+#| label: q1-heatmap-post2010
 #| echo: false
 #| out-width: "100%"
 
@@ -1382,6 +1394,7 @@ ggplot() +
 #| message: FALSE
 #| warning: FALSE
 #| include: FALSE
+#| out-width: "100%"
 
 state_mp <- state |> mutate(state=str_to_title(region))
 state_mp <- left_join(state_mp, 
@@ -1469,8 +1482,14 @@ bigfoot_sub_dv <- bigfoot_sub |>
 <br/> <br/>
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="40%"}
 ```{r}
+#| label: q1-barplot-reference
+#| message: FALSE
+#| warning: FALSE
+#| include: FALSE
+#| out-width: "100%"
+
 ggplot()+
   geom_polygon(data=state_mp,
                aes(x=long,
@@ -1508,8 +1527,14 @@ ggplot()+
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 ```{r}
+#| label: q1-barplot-vis
+#| message: FALSE
+#| warning: FALSE
+#| include: FALSE
+#| out-width: "100%"
+
 ggplot(
   data = bigfoot_sub_dv,
   mapping = aes(
@@ -1538,7 +1563,3 @@ ggplot(
 # Question 2: How are precipitation conditions associated with Bigfoot sightings?
 
 # The End
-
-![](https://www.history.com/.image/ar_4:3%252Cc_fill%252Ccs_srgb%252Cfl_progressive%252Cq_auto:good%252Cw_1200/MTU3ODc4NjAxOTExNzA2OTUz/bigfoot-517258962.jpg)
-
-Happy Hunting!
