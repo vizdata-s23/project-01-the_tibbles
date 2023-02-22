@@ -68,13 +68,13 @@ census <- readr::read_csv('data/CensusDivisions.csv')
 -   Dimensions: 5,021 rows (different Bigfoot sightings), 28 columns (details of sightings)
 
 ::: columns
-::: {.column width="50%" style="font-size: 20px"}
+::: {.column width="50%" style="font-size: 21px"}
 **Non-Weather Variables (12)**
 
 observed, location_details, county, state, season, title, latitude, longitude, date, number, classification, geohash
 :::
 
-::: {.column width="50%" style="font-size: 20px"}
+::: {.column width="50%" style="font-size: 21px"}
 **Weather Variables (16)**
 
 temperature_high, temperature_mid, temperature_low, dew_point, humidity, cloud_cover, moon_phase, precip_intensity, precip_probability, precip_type, pressure, summary, uv_index, visibility, wind_bearing, wind_speed
@@ -84,6 +84,10 @@ temperature_high, temperature_mid, temperature_low, dew_point, humidity, cloud_c
 # Question 1: How does the geographic distribution of Bigfoot sightings change over time?
 
 ## Plot 1
+
+Plot 2
+
+Plot 3
 
 ::: columns
 ::: {.column width="50%"}
