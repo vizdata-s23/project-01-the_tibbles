@@ -20,9 +20,6 @@ execute:
 #| label: load-packages
 #| include: false
 
-# Add any additional packages you need to this chunk
-# Remove any packages from this list that you're not using
-library(tidyr)
 library(knitr)
 library(viridis)
 library(tidyverse)
@@ -30,9 +27,9 @@ library(dplyr)
 library(maps)
 library(stringr)
 library(mapdata)
-library(tidymodels)
-library(gt)
-library(palmerpenguins)
+library(scales)
+library(ggridges)
+
 ```
 
 ```{r}
@@ -55,6 +52,8 @@ knitr::opts_chunk$set(
 
 bigfoot <- readr::read_csv('data/bigfoot.csv')
 census <- readr::read_csv('data/CensusDivisions.csv')
+usa <- map_data('usa')
+state <- map_data('state')
 ```
 
 # Introduction
