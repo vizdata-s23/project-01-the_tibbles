@@ -8,25 +8,43 @@ editor: visual
 
 ## Abstract
 
-The legend of Bigfoot has been a part of American lore for over a century. Over the years, there have been many recorded sighting of Bigfoot across the United States. The common geographic and weather factors between these sightings is the motivating question for this research. Using data from the Bigfoot Fied Researchers Organization website, we investigate the most common state and region for Bigfoot sightings and the weather conditions under which Bigfoot sightings are most common. Our findings hightlight trends in the geographical spread of Bigfoot sightings, including Bigfoot's recent reportings in Florida from Washington State, and report the most correlated weather conditions for sightings to occur, including 100% visibility conditions with humidity around 60%.
+**READ AND REVIEWED BY ANIK**
 
-[***!!!!! NOT COMPLETE !!!!!***]{.underline}
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
+
+The legend of Bigfoot has been a part of American lore for over a century. Over the years, there have been many recorded sighting of Bigfoot across the United States. The common geographic and weather factors between these sightings is the motivating question for this research. Using data from the Bigfoot Fied Researchers Organization website, we investigate the most common state and region for Bigfoot sightings and the weather conditions under which Bigfoot sightings are most common. Our findings hightlight trends in the geographical spread of Bigfoot sightings, including Bigfoot's recent reportings in Florida from Washington State, and report the most correlated weather conditions for sightings to occur, including 100% visibility conditions with humidity around 60%.
 
 ------------------------------------------------------------------------
 
 ## Introduction
 
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
+
 The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates from a publicly available database on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset created by Timothy Renner first became available on Data World in 2017. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as lengthier descriptions of the sighting observations, time and geographic details, and weather details.
 
 The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with plenty of categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
-[***!!!!! NOT REWRITTEN -- REMOVE THIS AFTER REVIEWING BEFORE FINAL TURN-IN !!!!!***]{.underline}
-
-***(aryaman - i edited this a little but think its good)***
-
 ## Question 1: How Does The Geographic Distribution Of Bigfoot Sightings Change Over Time?
 
 ### Introduction
+
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
 
 Our first question looks at the geographic distribution of Bigfoot sightings, and how this distribution has changed over the decades. We use the latitude, longitude, and date variables to determine the precise location and decade the observation occurred.
 
@@ -34,12 +52,27 @@ We are interested in this because investigating changes in the geographic distri
 
 ### Approach
 
-To address the first question, we utilized four different visualization
-techniques. The first method involved creating a scatter plot of Bigfoot sightings overlaid on a map of the mainland United States. This allowed us to visually observe clusters of sightings and areas of relative absence. The second method used a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density, which allowed for the identification of hot spots in regions with higher frequencies of Bigfoot sightings. We faceted both approaches by decade to facilitate comparisons across time.
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
+
+To address the first question, we utilized four different visualization techniques. The first method involved creating a scatter plot of Bigfoot sightings overlaid on a map of the mainland United States. This allowed us to visually observe clusters of sightings and areas of relative absence. The second method used a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density, which allowed for the identification of hot spots in regions with higher frequencies of Bigfoot sightings. We faceted both approaches by decade to facilitate comparisons across time.
 
 The third and fourth methods employed stacked bar graphs to track the proportion of Bigfoot sightings recorded in each region of the country by decade. We used a stack bar graph to visualize changes in the distribution among regions over time. While determining the exact proportion for a region was slightly more difficult in a stacked bar graph, the density of data was much greater than for a conventional bar plot that might display regions in separate columns. We chose to graph proportions rather than nominal counts, as the focus of our research question was not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, some decades produced dramatically more sightings than others in the data set, making it difficult to observe trends in the less-populated decades of our data. Lastly, we used Census regions instead of states, since 50 individual colors would have been difficult to read (trading precision for clarity).
 
 ### Analysis
+
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
 
 ```{r question_1_SETUP, warning=FALSE, message=FALSE, echo=FALSE}
 #install.packages("usmap")
@@ -429,6 +462,14 @@ ggplot()+
 
 ### Discussion
 
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
+
 Our figures demonstrate that the geographic distribution of Bigfoot sightings has undergone significant changes over time. A few findings are clear nationwide--- first, Bigfoot sightings have increased *everywhere* decade-over-decade. It is important to note, however, that earlier sightings may be less likely to appear in our data set. Beginning in the 2000s, Bigfoot was observed in areas where sightings had previously been absent, resulting in a wider geographic distribution, with sightings spanning the Dakotas, Plains States, and West Texas.
 
 Another generalized finding--- Bigfoot sightings ebb and flow in specific areas over time. To name *just a few* examples:
@@ -447,17 +488,37 @@ What this data, taken as a whole, tell us, is that the geographic distribution o
 
 ### Introduction
 
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
+
 Question 2 investigates the relationship between weather conditions and the number of Bigfoot sightings. The analysis focuses on seven weather variables, including dew point, humidity, temperature, cloud cover, UV index, visibility, wind bearing, and wind speed. By examining changes in these variables over time and their association with the number of Bigfoot sightings, we aim to gain a better understanding of the conditions that may be associated with Bigfoot sightings.
 
 We are interested in investigating the relationship between weather and Bigfoot sightings because it could contribute to a better understanding of the factors that influence human perceptions of the natural world. In addition, it could lead to new discoveries or hypotheses about the nature of Bigfoot.
 
-[***!!!!! NOT COMPLETE !!!!!***]{.underline}
-
 ### Approach
 
-[***!!! NOT COMPLETE !!!***]{.underline}
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
 
 ### Analysis
+
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
 
 (2-3 code blocks, 2 figures, text/code comments as needed): In this section, provide the code that generates your plots. Use scale functions to provide nice axis labels and guides. You are welcome to use theme functions to customize the appearance of your plot, but you are not required to do so. All plots must be made with **ggplot2**. Do not use base R or lattice plotting functions.
 
@@ -765,6 +826,14 @@ ggplot(bigfoot, aes(temperature_mid, humidity))+
 [***!!! NOT COMPLETE !!!***]{.underline}
 
 ### Discussion
+
+**READ AND REVIEWED BY ANIK**
+
+**READ AND REVIEWED BY ARYAMAN**
+
+**READ AND REVIEWED BY MATT**
+
+**READ AND REVIEWED BY NHU**
 
 (1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
 
