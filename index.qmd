@@ -819,6 +819,49 @@ ggplot(bigfoot, aes(temperature_mid, humidity))+
 
 ```
 
+```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
+library(dplyr)
+library(tidyverse)
+library(ggridges)
+library(knitr)
+
+bigfoot <- readr::read_csv('data/bigfoot.csv')
+census <- readr::read_csv('data/CensusDivisions.csv')
+census <- readr::read_csv('data/CensusDivisions.csv')
+census <- census |> rename("state" = "State",
+                            "region" = "Region", 
+                            "division" = "Division")
+bigfoot <- left_join(bigfoot,
+                     census, 
+                     by="state")
+
+cols_rg <- c("None" = "goldenrod1", 
+          "Rain" = "royalblue",
+          "Snow" = "white")
+
+bigfoot <- bigfoot %>%
+  mutate(precip_type=ifelse(precip_type=="rain","Rain",ifelse(precip_type=="snow","Snow",precip_type)))
+bigfoot <- bigfoot %>%
+  mutate(precip_type=ifelse(is.na(precip_type),ifelse(!is.na(temperature_mid),"None",precip_type),precip_type))
+bigfoot <- bigfoot %>%
+  select(precip_type,season,region)
+
+bigfoot_edit <- bigfoot
+
+bigfoot_edit <- bigfoot_edit %>%
+  filter(season!="Unknown" & !is.na(precip_type))
+
+ggplot()+
+  geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2")+
+  facet_wrap(~season,nrow=2)+
+  xlab("Bigfoot Sightings")+
+  ylab("U.S. Census Region")+
+  scale_fill_manual(values = cols_rg,
+                     name = "Precipitation")+
+  labs(title="Bigfoot Sightings by Precipitation: Singin' in the Rain",
+       subtitle="Broken down by U.S. Census region")
+```
+
 [***!!! NOT COMPLETE !!!***]{.underline}
 
 ### Discussion
