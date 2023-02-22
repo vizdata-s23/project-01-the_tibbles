@@ -59,7 +59,27 @@ census <- readr::read_csv('data/CensusDivisions.csv')
 
 # Introduction
 
-## Bigfoot Dataset
+## 'Bigfoot' TidyTuesday Dataset
+
+-   Creator: Timothy Renner, Data World 2017
+
+-   Data Source: Bigfoot Field Researchers Organization (BFRO), Dark Sky API
+
+-   Dimensions: 5,021 rows (different Bigfoot sightings), 28 columns (details of sightings)
+
+::: columns
+::: {.column width="50%" style="font-size: 20px"}
+**Non-Weather Variables (12)**
+
+observed, location_details, county, state, season, title, latitude, longitude, date, number, classification, geohash
+:::
+
+::: {.column width="50%" style="font-size: 20px"}
+**Weather Variables (16)**
+
+temperature_high, temperature_mid, temperature_low, dew_point, humidity, cloud_cover, moon_phase, precip_intensity, precip_probability, precip_type, pressure, summary, uv_index, visibility, wind_bearing, wind_speed
+:::
+:::
 
 # Question 1: How does the geographic distribution of Bigfoot sightings change over time?
 
@@ -209,25 +229,3 @@ gt(head(penguins))
 ## Images
 
 ![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png)
-
-## Math Expressions {.smaller}
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\alpha+\beta\$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
-
-    $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
