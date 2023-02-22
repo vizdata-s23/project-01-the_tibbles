@@ -1510,6 +1510,7 @@ ggplot()+
       legend.title=element_text(size=12),
       legend.text=element_text(size=12),
       plot.caption=element_text(size=12),
+      legend.position="bottom",
       plot.margin = margin(t = 0, 
                              r = 0, 
                              b = 0, 
@@ -1548,7 +1549,7 @@ ggplot(
     name = "U.S. Census\nDivision"
   ) +
   scale_y_continuous(labels = scales::percent) +
-  labs(title = "Geographic distribution of U.S. Bigfoot sightings, 1869-present") +
+  labs(title = "Geographic distribution of U.S. Bigfoot sightings") +
   xlab("Decade") +
   ylab("Proportion") +
   theme_bw()
