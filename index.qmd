@@ -62,7 +62,6 @@ The third method employed a stacked bar graph to track the proportion of Bigfoot
 #install.packages("mapdata")
 
 library(knitr)
-library(viridis)
 library(tidyverse)
 library(dplyr)
 library(maps)
@@ -425,6 +424,12 @@ ggplot(
   xlab("Decade") +
   ylab("Proportion") +
   theme_bw()
+
+
+#Code References
+#For creating a 'mask' map on the heatmap:
+#https://stackoverflow.com/questions/66911086/how-to-apply-a-polygon-mask-layer-in-ggplot
+
 ```
 
 ### Discussion
@@ -439,7 +444,7 @@ Another generalized finding--- Bigfoot sightings ebb and flow in specific areas 
 
 -   During the 2000s, Bigfoot sightings increased dramatically in the vicinity of Lake Tahoe and the Eldorado National Forest in California (identifiable both in the heat-map and scatter-plot). The grid-space containing this region actually set a record in the 2000s for the highest incidence outside of Washington State. Like the Texas hot spot, after 2010, this pattern completely disappeared. California is in the same region and division as Washington, limiting the conclusions we can draw from our bar plot that apply specifically to this pattern, but their (Pacific) division did see its proportion of sightings plummet post-2010, buttressing our conclusion from the heat-map.
 
-Lastly, Bigfoot is moving east! After 2010, the median Bigfoot sighting jumped the Mississippi River into Illinois for the first time ever in our data. The heat-map explains why: downstate Illinois, northeast Ohio, and the Hudson River Valley have all become hot spots for Bigfoot sightings (the Ohio cluster actually dates all the way back to the 1970s). The West region of the U.S. --- spanning from Honolulu to Denver--- contributed 40% of the nation's sightings in the 1990s, but this has fallen to only a quarter post-2010, actually disproportionately *less* than its area would warrant.
+Lastly, Bigfoot is moving east! After 2010, the median Bigfoot sighting jumped the Mississippi River into Illinois for the first time ever in our data. The heat-map explains why: downstate Illinois, northeast Ohio, and the Hudson River Valley have all become hot spots for Bigfoot sightings (the Ohio cluster actually dates all the way back to the 1970s). The [West](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf) region of the U.S. --- spanning from Honolulu to Denver--- contributed 40% of the nation's sightings in the 1990s, but this has fallen to only a quarter post-2010, actually disproportionately *less* than its area would warrant.
 
 What this data, taken as a whole, tell us, is that the geographic distribution of sightings is highly variable. We venture two explanations: first, that Bigfoot's tastes themselves are changing. Like all creatures, Bigfoot may have gotten bored and spread his wings- maybe for a yeti, Lake Tahoe was the place to be in 2007. Alternatively, we argue, Bigfoot sightings are a highly social event--- people think they see Bigfoot and tell their family, friends, and even the media--- making it much more likely that the individuals exposed to that information will earnestly (or for attention) claim to sight Bigfoot later. If one sighting can 'trigger' another, it would be logical for them to appear in geographical clusters like we observed forming and dissipating. While we cannot conclusively resolve the matter of Bigfoot's existence, we hypothesize that the latter explanation is more likely.
 
