@@ -52,6 +52,7 @@ We are interested in this because investigating changes in the geographic distri
 
 ### Approach
 
+<<<<<<< HEAD
 **READ AND REVIEWED BY ANIK**
 
 **READ AND REVIEWED BY ARYAMAN**
@@ -60,6 +61,8 @@ We are interested in this because investigating changes in the geographic distri
 
 **READ AND REVIEWED BY NHU**
 
+=======
+>>>>>>> 042be095ba22f4ac767b96d87f77a17a35fe1e1d
 To address the first question, we utilized four different visualization techniques. The first method involved creating a scatter plot of Bigfoot sightings overlaid on a map of the mainland United States. This allowed us to visually observe clusters of sightings and areas of relative absence. The second method used a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density, which allowed for the identification of hot spots in regions with higher frequencies of Bigfoot sightings. We faceted both approaches by decade to facilitate comparisons across time.
 
 The third and fourth methods employed stacked bar graphs to track the proportion of Bigfoot sightings recorded in each region of the country by decade. We used a stack bar graph to visualize changes in the distribution among regions over time. While determining the exact proportion for a region was slightly more difficult in a stacked bar graph, the density of data was much greater than for a conventional bar plot that might display regions in separate columns. We chose to graph proportions rather than nominal counts, as the focus of our research question was not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, some decades produced dramatically more sightings than others in the data set, making it difficult to observe trends in the less-populated decades of our data. Lastly, we used Census regions instead of states, since 50 individual colors would have been difficult to read (trading precision for clarity).
