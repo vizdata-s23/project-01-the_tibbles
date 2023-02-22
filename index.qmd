@@ -8,69 +8,29 @@ editor: visual
 
 ## Abstract
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 The legendary cryptid Bigfoot (also commonly known as Sasquatch, Yeti, or Yowie) has been a vibrant part of American lore for over a century. The data used for this project was adapted by Timothy Renner from the Bigfoot Field Researchers Organization digital database, and it provides details on the thousands of sighting in the United States recorded over the years -- with the first observation dating all the way back to 1869. Given the focus of data on geographic and atmospheric variables surrounding the sightings, our motivating questions revolve around uncovering the relationship between these variables and observations of Bigfoot. We first investigated the most common state and region for Bigfoot sightings, finding that sightings in the West region are consistently most common over time -- specifically in the Pacific states. Next, we investigated the weather conditions on the day of Bigfoot sightings and noted conditions most strongly correlated with sightings: \[[**INSERT VARIABLES MOST CORRELATED\]**]{.underline}. Though the analysis lacks a control, particularly for the weather variables, to contextualize results, this project sufficiently analyzes and highlights trends in the variables associated with Bigfoot sightings according to the Bigfoot Field Researchers Organization.
 
 ------------------------------------------------------------------------
 
 ## Introduction
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 The Tibbles choose the Bigfoot dataset from TidyTuesday. The data originates from a digital database publically available on the Bigfoot Field Researchers Organization (BFRO) website, and the dataset itself, which first became available on Data World in 2017, was created by Timothy Renner. The dataset contains 5,021 rows, with each row representing a separate Bigfoot sighting, and 28 columns, with each column providing details on the sighting. The columns can generally be categorized as either lengthier verbal descriptions of the sighting observations or a combination of numerical and categorical variables that describe details regarding time, geographic, and weather conditions.
 
 The Tibbles opted to work with this dataset because of our shared predilection for the supernatural and the desire to know more about one of the most iconic creatures in the North American imagination. It contains a wealth of observations with a variety of associated categorical and numerical data well-suited for comprehensive analysis and interpretation.
 
-## Question 1: Changes in the Geographic Distribution of Bigfoot Sightings over Time
+## Question 1: How does the geographic distribution of Bigfoot sightings change over time?
 
 ### Introduction
-
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
 
 Our first question investigates the geographic distribution of Bigfoot sightings and how this distribution has changed over time, using the latitude, longitude, and date variables to determine the precise location and decade the observation occurred. Analyzing the distribution of sightings and furthermore changes over times could provide insights on patterns of the public's relationship with paranormal phenomena, as well as the impact of media and popular culture on these beliefs. Each region and each generation in turn has different social and cultural beliefs, formed by the overarching history of the area and the events of the decade. Understanding these changes in the geographic distribution of sightings over time could also shed new light on this elusive creature.
 
 ### Approach
-
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
 
 To address the first question, we utilized three different visualization techniques. The first method involved creating a scatter plot of Bigfoot sightings overlaid on a map of the mainland United States. This allowed us to visually observe clusters of sightings and areas of relative absence. The second method used a heat map of Bigfoot sightings overlayed on a map of the mainland United States. A heat map trades the precision of directly mapping all sightings for the advantage of a clear representation of density, which allowed for the identification of hot spots in regions with higher frequencies of Bigfoot sightings. We faceted both approaches by decade to facilitate comparisons across time.
 
 The third method employed a stacked bar graph to track the proportion of Bigfoot sightings recorded in each division of the country by decade. We used a stack bar graph to visualize changes in the distribution among divisions over time. While determining the exact proportion for a division was slightly more difficult in a stacked bar graph, the density of data was much greater than for a conventional bar plot that might display divisions in separate columns. We chose to graph proportions rather than nominal counts, as the focus of our research question was not the quantity of sightings, but rather the overall changes in the distribution as a whole. Additionally, some decades produced dramatically more sightings than others in the data set, making it difficult to observe trends in the less-populated decades of our data.
 
 ### Analysis
-
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
 
 ```{r question_1_SETUP, warning=FALSE, message=FALSE, echo=FALSE}
 #install.packages("usmap")
@@ -337,14 +297,6 @@ ggplot(data = bigfoot_sub_dv,
 
 ### Discussion
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 Our figures demonstrate that the geographic distribution of Bigfoot sightings has undergone significant changes over time. A few findings are clear nationwide--- first, Bigfoot sightings have increased *everywhere* decade-over-decade. It is important to note, however, that earlier sightings may be less likely to appear in our data set. Beginning in the 2000s, Bigfoot was observed in areas where sightings had previously been absent, resulting in a wider geographic distribution, with sightings spanning the Dakotas, Plains States, and West Texas.
 
 Another generalized finding--- Bigfoot sightings ebb and flow in specific areas over time. To name *just a few* examples:
@@ -363,338 +315,11 @@ What this data, taken as a whole, tell us, is that the geographic distribution o
 
 ### Introduction
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 Our second question investigates the relationship between weather conditions and the number of Bigfoot sightings. The analysis focuses on the seven weather variables with the most available data: dew point, humidity, temperature, cloud cover, UV index, visibility, wind bearing, and wind speed. By examining the relationship between the weather conditions and the number of Bigfoot sightings, we attempt to derive and explain an association between the conditions and Bigfoot sightings. They may be able to explain the sightings from in two ways: these variables can contribute to a better understanding of the factors that influence human perception of the cryptic world, and/or it can lead to new discoveries and hypotheses about the nature of Bigfoot and his existence.
 
 ### Approach
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 ### Analysis
-
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
-(2-3 code blocks, 2 figures, text/code comments as needed): In this section, provide the code that generates your plots. Use scale functions to provide nice axis labels and guides. You are welcome to use theme functions to customize the appearance of your plot, but you are not required to do so. All plots must be made with **ggplot2**. Do not use base R or lattice plotting functions.
-
-```{r question-two, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=10, fig.height=5}
-library(dplyr)
-library(tidyverse)
-library(ggridges)
-library(knitr)
-bigfoot <- readr::read_csv('data/bigfoot.csv')
-bigfoot <- bigfoot |>
-  select(dew_point,
-         humidity,
-         temperature_mid,
-         cloud_cover,
-         uv_index,
-         visibility,
-         wind_bearing,
-         wind_speed) |>
-  mutate(y_dummy = 1)
-
-cols_qt <- c("1" = "#519A68", 
-          "2" = "#51837A",
-          "3" = "#517387",
-          "4" = "#515E97")
-
-
-
-
-# Dew Point
-ggplot(data=bigfoot |>
-         filter(!is.na(dew_point)),
-       mapping = aes(x = dew_point,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Dew Point (°F)")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                      values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by dew point",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$dew_point,na.rm=TRUE) / 
-                               mean(bigfoot$dew_point,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Dew Point
-ggplot(data=bigfoot |>
-         filter(!is.na(humidity)),
-       mapping = aes(x = humidity,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Humidity")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  scale_x_continuous(labels = scales::percent)+
-  labs(title="Distribution of Bigfoot sightings by humidity",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$humidity,na.rm=TRUE) / 
-                               mean(bigfoot$humidity,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Temperature Mid
-ggplot(data=bigfoot |>
-         filter(!is.na(temperature_mid)),
-       mapping = aes(x = temperature_mid,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Average Temperature for Day of Sighting (°F)")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by temperature",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$temperature_mid,na.rm=TRUE) / 
-                               mean(bigfoot$temperature_mid,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Cloud Cover
-ggplot(data=bigfoot |>
-         filter(!is.na(cloud_cover)),
-       mapping = aes(x = cloud_cover,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Cloud Cover")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  scale_x_continuous(labels = scales::percent)+
-  labs(title="Distribution of Bigfoot sightings by cloud cover",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$cloud_cover,na.rm=TRUE) / 
-                               mean(bigfoot$cloud_cover, 
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# UV
-ggplot(data=bigfoot |>
-         filter(!is.na(uv_index)),
-       mapping = aes(x = uv_index,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("U.V. Index")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by U.V. Index",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$uv_index,na.rm=TRUE) /
-                               mean(bigfoot$uv_index,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Visibility
-ggplot(data=bigfoot |>
-         filter(!is.na(visibility)),
-       mapping = aes(x = visibility,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Visibility (mi)")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by visibility",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$visibility,na.rm=TRUE) /
-                               mean(bigfoot$visibility,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Wind Bearing
-ggplot(data=bigfoot |>
-         filter(!is.na(wind_bearing)),
-       mapping = aes(x = wind_bearing,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Wind Bearing (°)")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by wind bearing",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$wind_bearing,na.rm=TRUE) / 
-                               mean(bigfoot$wind_bearing,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-# Wind Speed
-ggplot(data=bigfoot |>
-         filter(!is.na(wind_speed)),
-       mapping = aes(x = wind_speed,
-                     y = y_dummy,
-                     fill = factor(stat(quantile))))+ 
-  stat_density_ridges(geom = "density_ridges_gradient",
-                      quantile_lines = TRUE, 
-                      quantiles = 4, 
-                      calc_ecdf = TRUE)+
-  xlab("Wind Speed (mph)")+
-  theme(axis.text.y=element_blank(),
-          axis.ticks.y=element_blank(),
-        axis.title.y=element_blank(),
-        aspect.ratio=.5)+
-  scale_fill_manual(name="Quartile",
-                    values = cols_qt)+
-  labs(title="Distribution of Bigfoot sightings by wind speed",
-       subtitle=paste("Relative standard deviation (RSD):",
-                      format(sd(bigfoot$wind_speed,na.rm=TRUE) / 
-                               mean(bigfoot$wind_speed,
-                                    na.rm=TRUE),
-                             digits = 4)))
-
-Variable <- c("Dew Point", 
-          "Humidity", 
-          "Avg. Temperature", 
-          "Cloud Cover", 
-          "U.V. Index",
-          "Visibility",
-          "Wind Bearing",
-          "Wind Speed")
-Dispersion <- c((sd(bigfoot$dew_point,
-                    na.rm=TRUE) /
-                   mean(bigfoot$dew_point,
-                        na.rm=TRUE)),
-         (sd(bigfoot$humidity,
-             na.rm=TRUE) / 
-            mean(bigfoot$humidity,
-                 na.rm=TRUE)), 
-         (sd(bigfoot$temperature_mid,
-             na.rm=TRUE) / 
-            mean(bigfoot$temperature_mid,
-                 na.rm=TRUE)),
-         (sd(bigfoot$cloud_cover,
-             na.rm=TRUE) / 
-            mean(bigfoot$cloud_cover,
-                 na.rm=TRUE)),
-         (sd(bigfoot$uv_index
-             ,na.rm=TRUE) / 
-            mean(bigfoot$uv_index,
-                 na.rm=TRUE)),
-         (sd(bigfoot$visibility,
-             na.rm=TRUE) / 
-            mean(bigfoot$visibility,
-                 na.rm=TRUE)),
-         (sd(bigfoot$wind_bearing,
-             na.rm=TRUE) / 
-            mean(bigfoot$wind_bearing,
-                 na.rm=TRUE)),
-         (sd(bigfoot$wind_speed,
-             na.rm=TRUE) / 
-            mean(bigfoot$wind_speed,
-                 na.rm=TRUE)))
-
-df <- data.frame(Variable, 
-                 Dispersion)
-
-df <- df |>
-  arrange(Dispersion)
-
-knitr::kable(df, 
-             col.names=c("Variable",
-                         "Relative Standard Deviation"),
-             caption="Dispersion of Weather Variables",
-             digits=4)
-
-
-ggplot(bigfoot, aes(visibility, humidity))+
-  geom_bin_2d()+
-  scale_fill_continuous(name="Count")+
-  labs(title="Humidity and Visibility Conditions during Bigfoot Sightings",
-       subtitle="Variables selected on the basis of low dispersion")+
-  xlab("Visibility (mi)")+
-  ylab("Humidity")+
-  scale_y_continuous(labels=scales::percent)
-
-ggplot(bigfoot, aes(visibility, temperature_mid))+
-  geom_bin_2d()+
-  scale_fill_continuous(name="Count")+
-  labs(title="Temperature and Visibility Conditions during Bigfoot Sightings",
-       subtitle="Variables selected on the basis of low dispersion")+
-  xlab("Visibility (mi)")+
-  ylab("Average Temperature for Day of Sighting (°F)")
-
-ggplot(bigfoot, aes(temperature_mid, humidity))+
-  geom_bin_2d()+
-  scale_fill_continuous(name="Count")+
-  labs(title="Humidity and Temperature Conditions during Bigfoot Sightings",
-       subtitle="Variables selected on the basis of low dispersion")+
-  xlab("Average Temperature for Day of Sighting (°F)")+
-  ylab("Humidity")+
-  scale_y_continuous(labels=scales::percent)
-
-```
 
 ```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
 library(dplyr)
@@ -739,18 +364,6 @@ ggplot()+
        subtitle="Broken down by U.S. Census region")
 ```
 
-[***!!! NOT COMPLETE !!!***]{.underline}
-
 ### Discussion
 
-**READ AND REVIEWED BY ANIK**
-
-**READ AND REVIEWED BY ARYAMAN**
-
-**READ AND REVIEWED BY MATT**
-
-**READ AND REVIEWED BY NHU**
-
 (1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
-
-[***!!! NOT COMPLETE !!!***]{.underline}
