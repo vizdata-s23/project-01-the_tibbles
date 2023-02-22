@@ -267,10 +267,7 @@ cols_dv <- c("West South Central" = "firebrick1",
           "New England" = "seagreen2",
           "Pacific" = "royalblue3",
           "Mountain" = "royalblue1")
-cols_rg <- c("South" = "firebrick", 
-          "Northeast" = "seagreen",
-          "Midwest" = "goldenrod1",
-          "West" = "royalblue")
+
 bigfoot <- bigfoot |> filter(!is.na(date))
 census <- readr::read_csv('data/CensusDivisions.csv')
 census <- census |> rename("state" = "State",
@@ -305,30 +302,6 @@ bigfoot_sub <- bigfoot_sub |>
                                 "1990s",
                                 "2000s",
                                 "Post-2010")))
-bigfoot_sub_rg <- bigfoot_sub |>
-  group_by(region,
-           decade)|>
-  summarize(num = n())
-
-bigfoot_sub_rg <- bigfoot_sub_rg |> 
-  mutate(region=factor(region,
-                       levels=c("Northeast",
-                                "Midwest",
-                                "South",
-                                "West")))
-ggplot(data = bigfoot_sub_rg,
-       mapping = aes(fill=region, 
-                     y=num, 
-                     x=decade)) + 
-    geom_bar(position="fill",
-             stat="identity")+
-  scale_fill_manual(values = cols_rg,
-                          name = "U.S. Census\nRegion")+
-  scale_y_continuous(labels = scales::percent)+
-  labs(title="Geographic distribution of Bigfoot sightings, 1869-present")+
-  xlab("Decade")+
-  ylab("Proportion")+
-  theme_bw()
 
 bigfoot_sub_dv <- bigfoot_sub |>
   group_by(division,decade)|>
@@ -346,29 +319,6 @@ bigfoot_sub_dv <- bigfoot_sub_dv |>
                                 "Pacific",
                                 "Mountain")))
 
-state_mp <- state |> mutate(state=str_to_title(region))
-state_mp <- left_join(state_mp, 
-                      census,
-                      by="state")
-state_mp <- state_mp |> 
-  mutate(division=factor(division,
-                       levels=c("Middle Atlantic",
-                                "New England",
-                                "East North Central",
-                                "West North Central",
-                                "South Atlantic",
-                                "East South Central",
-                                "West South Central",
-                                "Pacific",
-                                "Mountain")))
-
-state_mp <- state_mp |>
-  mutate(region.y=factor(region.y,
-                       levels=c("Northeast",
-                                "Midwest",
-                                "South",
-                                "West")))
-
 ggplot(data = bigfoot_sub_dv,
        mapping = aes(fill=division, 
                      y=num, 
@@ -382,79 +332,6 @@ ggplot(data = bigfoot_sub_dv,
   xlab("Decade")+
   ylab("Proportion")+
   theme_bw()
-
-```
-
-```{r question_1_REFMAPS, fig.align="center", warning=FALSE, message=FALSE,fig.width=10, fig.height=5.2, fig.show='hold',echo=FALSE}
-ggplot()+
-  geom_polygon(data=state_mp,
-               aes(x=long,
-                   y=lat,
-                   group=group,
-                   fill=region.y),
-               color="black",
-               alpha=1)+
-  scale_fill_manual(values = cols_rg,
-                          name = "U.S. Census\nRegion")+
-  theme(axis.line=element_blank(),
-      axis.text.x=element_blank(),
-      axis.text.y=element_blank(),
-      axis.ticks=element_blank(),
-      axis.title.x=element_blank(),
-      axis.title.y=element_blank(),
-      panel.background=element_rect(fill="white"),
-      panel.grid.major=element_blank(),
-      panel.grid.minor=element_blank(),
-      plot.title=element_text(size=15),
-      legend.title=element_text(size=12),
-      legend.text=element_text(size=12),
-      plot.caption=element_text(size=12),
-      plot.margin = margin(t = 0, 
-                             r = 0, 
-                             b = 0, 
-                             l = 0))+
-      scale_colour_manual(values = cols_rg,
-                          name = element_blank())+
-  labs(caption="Hawaii and Alaska are in the West region",
-       subtitle="Reference")+
-  coord_fixed(ratio=1.3,
-              xlim=c(-125,-65),
-              ylim=c(25,50))
-
-ggplot()+
-  geom_polygon(data=state_mp,
-               aes(x=long,
-                   y=lat,
-                   group=group,
-                   fill=division),
-               color="black",
-               alpha=1)+
-  scale_fill_manual(values = cols_dv,
-                          name = "U.S. Census\nDivision")+
-  theme(axis.line=element_blank(),
-      axis.text.x=element_blank(),
-      axis.text.y=element_blank(),
-      axis.ticks=element_blank(),
-      axis.title.x=element_blank(),
-      axis.title.y=element_blank(),
-      panel.background=element_rect(fill="white"),
-      panel.grid.major=element_blank(),
-      panel.grid.minor=element_blank(),
-      plot.title=element_text(size=15),
-      legend.title=element_text(size=12),
-      legend.text=element_text(size=12),
-      plot.caption=element_text(size=12),
-      plot.margin = margin(t = 0, 
-                             r = 0, 
-                             b = 0, 
-                             l = 0))+
-      scale_colour_manual(values = cols_dv,
-                          name = element_blank())+
-  labs(caption="Hawaii and Alaska are in the Pacific division",
-       subtitle="Reference")+
-  coord_fixed(ratio=1.3,
-              xlim=c(-125,-65),
-              ylim=c(25,50))
 
 ```
 
@@ -817,6 +694,49 @@ ggplot(bigfoot, aes(temperature_mid, humidity))+
   ylab("Humidity")+
   scale_y_continuous(labels=scales::percent)
 
+```
+
+```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
+library(dplyr)
+library(tidyverse)
+library(ggridges)
+library(knitr)
+
+bigfoot <- readr::read_csv('data/bigfoot.csv')
+census <- readr::read_csv('data/CensusDivisions.csv')
+census <- readr::read_csv('data/CensusDivisions.csv')
+census <- census |> rename("state" = "State",
+                            "region" = "Region", 
+                            "division" = "Division")
+bigfoot <- left_join(bigfoot,
+                     census, 
+                     by="state")
+
+cols_rg <- c("None" = "goldenrod1", 
+          "Rain" = "royalblue",
+          "Snow" = "white")
+
+bigfoot <- bigfoot %>%
+  mutate(precip_type=ifelse(precip_type=="rain","Rain",ifelse(precip_type=="snow","Snow",precip_type)))
+bigfoot <- bigfoot %>%
+  mutate(precip_type=ifelse(is.na(precip_type),ifelse(!is.na(temperature_mid),"None",precip_type),precip_type))
+bigfoot <- bigfoot %>%
+  select(precip_type,season,region)
+
+bigfoot_edit <- bigfoot
+
+bigfoot_edit <- bigfoot_edit %>%
+  filter(season!="Unknown" & !is.na(precip_type))
+
+ggplot()+
+  geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2")+
+  facet_wrap(~season,nrow=2)+
+  xlab("Bigfoot Sightings")+
+  ylab("U.S. Census Region")+
+  scale_fill_manual(values = cols_rg,
+                     name = "Precipitation")+
+  labs(title="Bigfoot Sightings by Precipitation: Singin' in the Rain",
+       subtitle="Broken down by U.S. Census region")
 ```
 
 [***!!! NOT COMPLETE !!!***]{.underline}
