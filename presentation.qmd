@@ -1479,15 +1479,12 @@ bigfoot_sub_dv <- bigfoot_sub |>
 
 ```
 
-<br/> <br/>
-
 ::: columns
-::: {.column width="40%"}
+::: {.column width="35%"}
 ```{r}
 #| label: q1-barplot-reference
 #| message: FALSE
 #| warning: FALSE
-#| include: FALSE
 #| out-width: "100%"
 
 ggplot()+
@@ -1527,12 +1524,11 @@ ggplot()+
 ```
 :::
 
-::: {.column width="60%"}
+::: {.column width="65%"}
 ```{r}
 #| label: q1-barplot-vis
 #| message: FALSE
 #| warning: FALSE
-#| include: FALSE
 #| out-width: "100%"
 
 ggplot(
@@ -1562,4 +1558,121 @@ ggplot(
 
 # Question 2: How are precipitation conditions associated with Bigfoot sightings?
 
+## Boxplot: Precipitation Probability
+
+::: {.callout-tip appearance="minimal"}
+Probability of Precipitation = (Confidence in Precip) x (Area of Precip)
+:::
+
+```{r}
+#| label: q2-boxplot-wrangling
+#| message: FALSE
+#| warning: FALSE
+#| include: FALSE
+
+precip_probability_median <- bigfoot |>
+  filter(!is.na(precip_probability)) |>
+  filter(precip_probability > 0) |>
+  filter(season != "Unknown") |>
+  group_by(season) |>
+  summarize(median = median(precip_probability)) |>
+  mutate(median_percent = percent(median))
+```
+
+```{r}
+#| label: q2-boxplot
+#| message: FALSE
+#| warning: FALSE
+#| out-width: "100%"
+#| fig-align: "center"
+
+
+bigfoot |>
+  filter(!is.na(precip_probability)) |>
+  filter(precip_probability > 0) |>
+  filter(season != "Unknown") |>
+  ggplot(aes(x = precip_probability, y = season)) +
+  geom_boxplot() +
+  geom_text(
+    data = precip_probability_median,
+    aes(
+      x = median, y = season, label = median_percent
+    ), size = 3, hjust = 1.5
+  ) +
+  scale_x_continuous(labels = c("0%", "25%", "50%", "75%", "100%")) +
+  scale_y_discrete(labels = c("Fall", "Summer", "Spring", "Winter")) +
+  coord_cartesian(clip = "off") +
+  labs(
+    title = "Precipitation Probability during Bigfoot Sightings", 
+    subtitle = "By Season",
+    x = "Probability of Precipitation",
+    y = "Season"
+  ) +
+  theme_minimal()
+```
+
+## Barplot: Precipitation Type
+
+```{r}
+#| label: q2-barplot-wrangling
+#| message: FALSE
+#| warning: FALSE
+#| include: FALSE
+
+cols_rg <- c("None" = "goldenrod1", 
+          "Rain" = "royalblue",
+          "Snow" = "lightblue")
+
+bigfoot_precip <- bigfoot |>
+  mutate(
+    precip_type = ifelse(
+      precip_type == "rain", "Rain", ifelse(precip_type == "snow", "Snow", precip_type)
+    )
+  ) |>
+  mutate(
+    precip_type =
+      ifelse(is.na(precip_type),
+        ifelse(!is.na(temperature_mid), "None", precip_type), precip_type
+      )
+  ) |>
+  select(
+    precip_type, season, region
+  ) |>
+  filter(season != "Unknown" & !is.na(precip_type)) |>
+  mutate(precipitation = ifelse(precip_type == "None", "No", "Yes"))
+```
+
+```{r}
+#| label: q2-barplot
+#| message: FALSE
+#| warning: FALSE
+#| out-width: "100%"
+#| fig-align: "center"
+
+bigfoot_precip |>
+  ggplot() +
+  geom_bar(mapping = aes(y = precipitation, fill = precip_type)) +
+  facet_wrap(
+    ~ factor(
+      season,
+      levels = c("Fall", "Summer", "Spring", "Winter")
+    ),
+    ncol = 1
+  ) +
+  scale_fill_manual(
+    values = cols_rg,
+    name = "Precipitation Type"
+  ) +
+  labs(
+    title = "Bigfoot Sightings by Precipitation: Singin' in the Rain",
+    x = "Bigfoot Sightings",
+    y = "Precipitation?"
+  ) +
+  theme_minimal()
+```
+
 # The End
+
+![Source: Roger Patterson and Bob Gimlin, California 1967](images/bigfoot_photo.jpg)
+
+# HAPPY HUNTING!
