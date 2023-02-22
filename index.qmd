@@ -32,9 +32,15 @@ The third method employed a stacked bar graph to track the proportion of Bigfoot
 
 ### Analysis
 
-```{r question_1_SETUP, warning=FALSE, message=FALSE, echo=FALSE}
+```{r}
+#| label: question_1_SETUP
+#| warning: FALSE
+#| message: FALSE
+#| echo: FALSE
+
 #install.packages("usmap")
 #install.packages("mapdata")
+
 library(knitr)
 library(viridis)
 library(tidyverse)
@@ -42,20 +48,22 @@ library(dplyr)
 library(maps)
 library(stringr)
 library(mapdata)
+
 bigfoot <- readr::read_csv('data/bigfoot.csv')
 census <- readr::read_csv('data/CensusDivisions.csv')
+
 bigfoot_xy <- bigfoot |> 
   select(latitude,
          longitude,
-         date)
-bigfoot_xy <- bigfoot_xy |> 
+         date) |>
   filter(!is.na(latitude) & 
            !is.na(longitude) &
-           !is.na(date))
-bigfoot_xy <- bigfoot_xy |> 
+           !is.na(date)) |>
   mutate(date = as.integer(substring(date,1,4)))
+
 usa <- map_data('usa')
 state <- map_data('state')
+
 bigfoot_xy <- bigfoot_xy |> 
   mutate(alt_date = as.integer(substring(date,1,3))*10)
 bigfoot_xy <- bigfoot_xy |> 
@@ -330,7 +338,7 @@ Our second question investigates the relationship between weather conditions and
 #| fig.width = 15
 #| fig.height = 5
 
-bigfoot <- readr::read_csv('data/bigfoot.csv')
+bigfoot <- readr::read_csv("data/bigfoot.csv")
 precip_probability_median <- bigfoot |>
   filter(!is.na(precip_probability)) |>
   filter(precip_probability > 0) |>
@@ -345,14 +353,20 @@ bigfoot |>
   filter(season != "Unknown") |>
   ggplot(aes(x = precip_probability, y = season)) +
   geom_boxplot() +
-  geom_text(data = precip_probability_median, aes(x = median, y = season, label = median_percent), size = 3, hjust = 2) +
+  geom_text(
+    data = precip_probability_median,
+    aes(
+      x = median, y = season, label = median_percent
+    ), size = 3, hjust = 1.5
+  ) +
   scale_y_discrete(labels = c("Fall", "Summer", "Spring", "Winter")) +
   coord_cartesian(clip = "off") +
-  labs(title = "Precipitation Probability during Bigfoot Sightings by Season", 
-       x = "Precipitation Probability" ,
-       y = "Season") +
+  labs(
+    title = "Precipitation Probability during Bigfoot Sightings by Season",
+    x = "Precipitation Probability",
+    y = "Season"
+  ) +
   theme_minimal()
-  
 ```
 
 ```{r question-two-redesign, message=FALSE, warning=FALSE, echo=FALSE, fig.show="hold", fig.width=15, fig.height=5}
@@ -387,15 +401,19 @@ bigfoot_edit <- bigfoot
 bigfoot_edit <- bigfoot_edit %>%
   filter(season!="Unknown" & !is.na(precip_type))
 
-ggplot()+
-  geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2")+
-  facet_wrap(~season,ncol = 1)+
-  xlab("Bigfoot Sightings")+
-  ylab("U.S. Census Region")+
-  scale_fill_manual(values = cols_rg,
-                     name = "Precipitation")+
-  labs(title="Bigfoot Sightings by Precipitation: Singin' in the Rain",
-       subtitle="Broken down by U.S. Census region")
+ggplot() +
+  geom_bar(data = bigfoot_edit, mapping = aes(y = region, fill = precip_type), color = "black", position = "dodge2") +
+  facet_wrap(~season, ncol = 1) +
+  xlab("Bigfoot Sightings") +
+  ylab("U.S. Census Region") +
+  scale_fill_manual(
+    values = cols_rg,
+    name = "Precipitation"
+  ) +
+  labs(
+    title = "Bigfoot Sightings by Precipitation: Singin' in the Rain",
+    subtitle = "Broken down by U.S. Census region"
+  )
 ```
 
 ### Discussion
