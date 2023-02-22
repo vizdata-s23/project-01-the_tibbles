@@ -1,7 +1,7 @@
 ---
 title: "Statsquatch: A Data Expedition into Bigfoot Sightings"
 subtitle: "STA/ISS 313 - Project 1"
-author: "The Tibbles"
+author: "The Tibbles (Nhu Bui, Anik Sen, Matt Mohn, Aryaman Babber)"
 format: html
 editor: visual
 ---
