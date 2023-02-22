@@ -30,6 +30,8 @@ Given the focus of the variables on geography and weather conditions, The Tibble
 
 -   precip_type: type of precipitation
 
+Additionally, we used formal U.S. Census classifications (from a [separate data set](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf)) to link states to aggregated regions/divisions.
+
 ## Question 1: How does the geographic distribution of Bigfoot sightings change over time?
 
 ### Introduction
